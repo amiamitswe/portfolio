@@ -1,19 +1,23 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   useState(() => {
+
+    console.log(localStorage?.theme)
     if (
       localStorage?.theme === "dark" ||
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    )
+     {
       document.documentElement.classList.add("dark");
-      document.body.classList.add('bg-black')
+      document.body.classList.add('bg-body-dark')
     } else {
       document.documentElement.classList.remove("dark");
-      document.body.classList.add('bg-white')
+      document.body.classList.add('bg-body-light')
     }
 
     // // Whenever the user explicitly chooses light mode
@@ -29,6 +33,7 @@ function App() {
   return (
     <>
       <Header />
+      <HeroSection />
     </>
   );
 }

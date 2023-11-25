@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import MyTechStack from "./components/MyTechStack";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -34,6 +35,7 @@ function App() {
     <>
       <Header />
       <HeroSection />
+      <MyTechStack />
     </>
   );
 }

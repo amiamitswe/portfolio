@@ -14,7 +14,8 @@ export default {
         gray1: '#666',
         gray2: '#A7A7A7',
         gray3: "#CCC",
-        gray4: "#D9D9D9"
+        gray4: "#D9D9D9",
+        gray5: "#363636"
       },
       fontFamily: {
         "poppins": ['Poppins', 'sans-serif'],

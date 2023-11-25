@@ -16,6 +16,8 @@ import ScssIcon from "../assets/icons/ScssIcon";
 import TailwindIcon from "../assets/icons/TailwindIcon";
 import VSCodeIcon from "../assets/icons/VSCodeIcon";
 import WebStormIcon from "../assets/icons/WebStormIcon";
+import SectionTitle from "./common/SectionTitle";
+import TechItem from "./common/TechItem";
 
 function MyTechStack() {
   const techItem = [
@@ -52,23 +54,15 @@ function MyTechStack() {
   ];
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 mt-[200px]">
-      <div className="text-center mb-32">
-        <p className="text-5xl font-bold mb-8 text-light-blue dark:text-gray3">
-          My Tech Stack
-        </p>
-        <p className="text-3xl text-gray1 dark:text-gray2">
-          Technologies I’ve been working with recently
-        </p>
-      </div>
+    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
+      <SectionTitle
+        title="My Tech Stack"
+        info="Technologies I’ve been working with recently"
+      />
 
       <div className="grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-3 gap-8 place-items-center">
         {techItem?.map((item) => (
-          <div key={item.id}  className="grayscale opacity-90 hover:grayscale-0 hover:opacity-100 cursor-pointer transform duration-200">
-            <a href={item.url} target="_blank" rel="noreferrer">
-              <item.item />
-            </a>
-          </div>
+          <TechItem key={item.id} item={item} />
         ))}
       </div>
     </div>

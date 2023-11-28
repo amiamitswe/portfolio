@@ -4,7 +4,7 @@ import ReactGA from "react-ga4";
 import App from './App.jsx'
 import './index.css'
 
-ReactGA.initialize("G-M37Q9V0F6G");
+ReactGA.initialize(`"${import.meta.env.VITE_APP_GOOGLE_ANALYTICS}"`);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

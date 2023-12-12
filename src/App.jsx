@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import MyTechStack from "./components/MyTechStack";
 import MyProjects from "./components/MyProjects";
+import MySkills from "./components/MySkills";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -38,6 +39,7 @@ function App() {
       <HeroSection />
       <MyTechStack />
       <MyProjects />
+      <MySkills />
     </>
   );
 }

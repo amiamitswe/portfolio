@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "../assets/logo/Logo";
 
 function NavbarDialog({ mobileMenuOpen, setMobileMenuOpen }) {
   const navigation = [
@@ -38,13 +39,9 @@ function NavbarDialog({ mobileMenuOpen, setMobileMenuOpen }) {
           >
             <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-body-light dark:bg-body-dark p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
-                <a href="#" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                  />
+                <a href="#" className="-m-1.5 p-1.5 text-body-dark dark:text-gray4">
+                  <span className="sr-only">Amit Samadder</span>
+                  <Logo />
                 </a>
                 <button
                   type="button"

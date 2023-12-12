@@ -5,6 +5,7 @@ import TwitterIcon from "../assets/icons/TwitterIcon";
 import LinkedinIcon from "../assets/icons/LinkedinIcon";
 import ThemeToggle from "./ThemeToggle";
 import NavbarDialog from "./NavbarDialog";
+import Logo from "../assets/logo/Logo";
 
 const navigation = [
   { name: "Home", href: "#" },
@@ -23,13 +24,9 @@ export default function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">Your Company</span>
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
+        <a href="#" className="-m-1.5 p-1.5  text-body-dark dark:text-gray4">
+          <span className="sr-only">Amit Samadder</span>
+          <Logo />
         </a>
         <div className="flex lg:hidden">
           <button

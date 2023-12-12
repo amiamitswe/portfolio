@@ -17,7 +17,7 @@ function ProjectItem({ item }) {
           className="h-full w-full object-cover object-center sm:h-full sm:w-full"
         />
       </div>
-      <div className="flex flex-1 flex-col space-y-2">
+      <div className="flex flex-1 flex-col justify-between space-y-2">
         <div className="p-4 pb-0">
           <h3 className="text-[28px] leading-[26px] font-normal text-black dark:text-gray3 mb-4">{item.title}</h3>
           <p className="text-lg leading-[26px] text-gray1 dark:text-gray3 font-light mb-3">{item.description}</p>

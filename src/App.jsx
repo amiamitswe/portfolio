@@ -40,8 +40,8 @@ function App() {
       <HeroSection />
       <MyTechStack />
       <MySkills />
-      <MyProjects />
       <AdditionalSkills />
+      <MyProjects />
     </>
   );
 }

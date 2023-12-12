@@ -14,9 +14,9 @@ function AdditionalSkills() {
     { title: "Windows" },
     { title: "Teamwork" },
     { title: "Quick learning" },
-    { title: "Communication skill" },
     { title: "Client handling" },
     { title: "B2 english" },
+    { title: "Communication skill", lText: true },
   ];
   return (
     <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
@@ -27,7 +27,7 @@ function AdditionalSkills() {
 
       <div className="lg:w-9/12 w-full mx-auto grid md:grid-cols-3 grid-cols-2 gap-4">
         {additionalSkills?.map((skill) => (
-          <OtherSkill key={skill.title} title={skill.title} />
+          <OtherSkill key={skill.title} skill={skill} />
         ))}
       </div>
     </div>

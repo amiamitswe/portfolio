@@ -7,7 +7,7 @@ function MySkills() {
     { title: "JavaScript", skillLabel: 85 },
     { title: "Next-JS & TypeScript", skillLabel: 65 },
     { title: "HTML, figma to html", skillLabel: 90 },
-    { title: "CSS, bootstrap, tailwind css", skillLabel: 95 },
+    { title: "CSS, bootstrap, tailwind css", skillLabel: 90 },
     { title: "Node & Express", skillLabel: 50 },
     { title: "Mongodb", skillLabel: 40 },
   ];

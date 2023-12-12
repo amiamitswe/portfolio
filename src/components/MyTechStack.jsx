@@ -60,7 +60,7 @@ function MyTechStack() {
         info="Technologies I’ve been working with recently"
       />
 
-      <div className="grid lg:grid-cols-6 sm:grid-cols-4 grid-cols-3 gap-8 place-items-center">
+      <div className="grid lg:grid-cols-6 grid-cols-4 gap-8 place-items-center">
         {techItem?.map((item) => (
           <TechItem key={item.id} item={item} />
         ))}

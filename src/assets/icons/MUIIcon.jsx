@@ -2,8 +2,8 @@ function MUIIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="100"
+      // width="100"
+      // height="100"
       viewBox="0 0 600 476.3"
     >
       <path fill="#00b0ff" d="M0 259.8V0l225 129.9v86.6L75 129.9v173.2z"></path>

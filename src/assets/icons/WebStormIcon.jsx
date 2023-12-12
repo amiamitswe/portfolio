@@ -5,8 +5,8 @@ function WebStormIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="100"
-      height="100"
+      // width="100"
+      // height="100"
       data-name="Layer 1"
       viewBox="0 0 128 128"
     >

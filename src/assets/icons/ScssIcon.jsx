@@ -2,8 +2,8 @@ function ScssIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="117"
-      height="87"
+      // width="117"
+      // height="87"
       fill="none"
       viewBox="0 0 117 87"
     >

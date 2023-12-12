@@ -4,8 +4,8 @@ function NodeJsIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="120"
+      // width="100"
+      // height="120"
       preserveAspectRatio="xMinYMin meet"
       viewBox="0 0 256 282"
     >

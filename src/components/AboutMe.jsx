@@ -9,12 +9,12 @@ function AboutMe() {
   ];
   return (
     <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
-      <SectionTitle title="About me" info="Things I’ve built so far" />
+      <SectionTitle title="About" info="Info About Myself" />
 
-      <div className="w-full">
+      <div className="grid grid-cols-1 gap-5 text-gray5 dark:text-gray3 ">
         {aboutMe?.map((text, index) => (
           <p
-            className="lg:text-lg text-base text-gray5 dark:text-gray3 mb-5 last:mb-0 text-justify"
+            className="lg:text-lg text-base text-justify"
             key={index}
           >
             {text}

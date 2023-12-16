@@ -8,23 +8,22 @@ import AdditionalSkills from "./components/AdditionalSkills";
 import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   useState(() => {
-
     // console.log(localStorage?.theme)
     if (
       localStorage?.theme === "dark" ||
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
-    )
-     {
+    ) {
       document.documentElement.classList.add("dark");
-      document.body.classList.add('bg-body-dark')
+      document.body.classList.add("bg-body-dark");
     } else {
       document.documentElement.classList.remove("dark");
-      document.body.classList.add('bg-body-light')
+      document.body.classList.add("bg-body-light");
     }
 
     // // Whenever the user explicitly chooses light mode
@@ -48,6 +47,7 @@ function App() {
       <AboutMe />
       <Experience />
       <Education />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );
 }

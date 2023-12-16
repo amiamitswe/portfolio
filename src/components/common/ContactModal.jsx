@@ -2,6 +2,7 @@ import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 export default function ContactModal({ open, setOpen }) {
   const form = useRef();
@@ -16,12 +17,14 @@ export default function ContactModal({ open, setOpen }) {
 
     emailjs.sendForm(service, template, form.current, publicKey).then(
       (result) => {
+        toast.success("Email sent successful");
         console.log(result.text);
-        setOpen(false)
+        setOpen(false);
       },
       (error) => {
+        toast.error("Email sent failed");
         console.log(error.text);
-        setOpen(false)
+        setOpen(false);
       }
     );
   };
@@ -118,7 +121,6 @@ export default function ContactModal({ open, setOpen }) {
                     <button
                       type="submit"
                       className="inline-flex w-full justify-center rounded-md bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
-              
                     >
                       Sent
                     </button>

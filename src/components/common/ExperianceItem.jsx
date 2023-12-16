@@ -14,7 +14,7 @@ function ExperienceItem({experience}) {
       </span>
     </div>
     <div className="my-3 flex flex-wrap gap-2">
-      {experience?.skills?.map(skill => <span key={skill} className="inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-400/10 px-2 py-1 text-sm font-medium text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/10 dark:ring-gray-400/20 capitalize">
+      {experience?.skills?.map(skill => <span key={skill} className="inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-400/10 px-2 py-1 text-sm font-medium text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/10 dark:ring-gray-400/20 capitalize">
         {skill}
       </span>)}
       

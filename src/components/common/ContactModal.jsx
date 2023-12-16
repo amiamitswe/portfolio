@@ -1,4 +1,4 @@
-import { Fragment, useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import emailjs from "@emailjs/browser";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 export default function ContactModal({ open, setOpen }) {
   const form = useRef();
   const cancelButtonRef = useRef(null);
+  const [loading, setLoading] = useState(false)
 
   const service = "service_h653wcf";
   const template = "template_krarq7i";
@@ -14,19 +15,21 @@ export default function ContactModal({ open, setOpen }) {
 
   const sentEmail = (e) => {
     e.preventDefault();
+    setLoading(true)
 
     emailjs.sendForm(service, template, form.current, publicKey).then(
       (result) => {
         toast.success("Email sent successful");
         console.log(result.text);
         setOpen(false);
+   
       },
       (error) => {
         toast.error("Email sent failed");
         console.log(error.text);
         setOpen(false);
       }
-    );
+    ).finally(() => setLoading(false));
   };
 
   return (
@@ -122,7 +125,10 @@ export default function ContactModal({ open, setOpen }) {
                       type="submit"
                       className="inline-flex w-full justify-center rounded-md bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
                     >
-                      Sent
+                      Sent {loading ?  <svg className="animate-spin ml-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg> : null }
                     </button>
                     <button
                       type="button"

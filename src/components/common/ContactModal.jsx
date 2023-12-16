@@ -1,9 +1,30 @@
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
+import emailjs from "@emailjs/browser";
 
 export default function ContactModal({ open, setOpen }) {
+  const form = useRef();
   const cancelButtonRef = useRef(null);
+
+  const service = "service_h653wcf";
+  const template = "template_krarq7i";
+  const publicKey = "FmIog3ElAtoaZQz-P";
+
+  const sentEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(service, template, form.current, publicKey).then(
+      (result) => {
+        console.log(result.text);
+        setOpen(false)
+      },
+      (error) => {
+        console.log(error.text);
+        setOpen(false)
+      }
+    );
+  };
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -37,21 +58,22 @@ export default function ContactModal({ open, setOpen }) {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                <div>
-                <div className="mb-4">
+                <form ref={form} onSubmit={sentEmail}>
+                  <div className="mb-4">
                     <label
                       htmlFor="name"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      Name
+                      Name <span className="text-[10px]">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
+                        required
                         type="text"
-                        name="name"
+                        name="user_name"
                         id="name"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
-                        placeholder="you@example.com"
+                        placeholder="Your name please"
                       />
                     </div>
                   </div>
@@ -60,12 +82,13 @@ export default function ContactModal({ open, setOpen }) {
                       htmlFor="email"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      Email
+                      Email <span className="text-[10px]">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
+                        required
                         type="email"
-                        name="email"
+                        name="user_email"
                         id="email"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
                         placeholder="you@example.com"
@@ -77,11 +100,13 @@ export default function ContactModal({ open, setOpen }) {
                       htmlFor="message"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      Add your Message
+                      Add your Message{" "}
+                      <span className="text-[10px]">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <textarea
                         rows={4}
+                        required
                         name="message"
                         id="message"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
@@ -89,24 +114,24 @@ export default function ContactModal({ open, setOpen }) {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
-                    onClick={() => setOpen(false)}
-                  >
-                    Sent
-                  </button>
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                    onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
-                  >
-                    Cancel
-                  </button>
-                </div>
+                  <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                    <button
+                      type="submit"
+                      className="inline-flex w-full justify-center rounded-md bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2"
+              
+                    >
+                      Sent
+                    </button>
+                    <button
+                      type="button"
+                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                      onClick={() => setOpen(false)}
+                      ref={cancelButtonRef}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </Dialog.Panel>
             </Transition.Child>
           </div>

@@ -34,12 +34,6 @@ function MyProjects() {
         {projects?.map((project) => (
           <ProjectItem key={project.id} item={project} />
         ))}
-        {/* <ProjectItem />
-        <ProjectItem />
-        <ProjectItem />
-        <ProjectItem />
-        <ProjectItem />
-        <ProjectItem /> */}
       </div>
     </div>
   );

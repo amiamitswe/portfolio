@@ -5,6 +5,7 @@ import MyTechStack from "./components/MyTechStack";
 import MyProjects from "./components/MyProjects";
 import MySkills from "./components/MySkills";
 import AdditionalSkills from "./components/AdditionalSkills";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -42,6 +43,7 @@ function App() {
       <MySkills />
       <AdditionalSkills />
       <MyProjects />
+      <AboutMe />
     </>
   );
 }

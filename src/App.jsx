@@ -7,6 +7,7 @@ import MySkills from "./components/MySkills";
 import AdditionalSkills from "./components/AdditionalSkills";
 import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
+import Education from "./components/Education";
 
 function App() {
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -46,6 +47,7 @@ function App() {
       <MyProjects />
       <AboutMe />
       <Experience />
+      <Education />
     </>
   );
 }

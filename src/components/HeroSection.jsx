@@ -6,7 +6,7 @@ function HeroSection() {
   const [open, setOpen] = useState(false)
   return (
     <>
-    <div className="mx-auto max-w-7xl p-6 lg:px-8 lg:mt-[200px] mt-2">
+    <div className="mx-auto max-w-7xl p-6 lg:px-8 xl:mt-[200px] lg:mt-[100px] mt-2">
       <div className="flex flex-col-reverse md:flex-row justify-between items-center w-full gap-y-10 lg:gap-y-0">
         <div>
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-[58px] lg:leading-[70px] text-light-blue dark:text-gray4 ">
@@ -26,8 +26,6 @@ function HeroSection() {
               <AtSymbolIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
             </button>
             <a href="https://drive.google.com/file/d/1HsgytT4oruUbui_Pnr7UHHXGhD4pKS8A/view?usp=sharing&export=download" download="Amit Samadder"
-           
-        
               target="_blank"
               rel="noreferrer"
               className="rounded-full inline-flex items-center gap-x-1.5 bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"

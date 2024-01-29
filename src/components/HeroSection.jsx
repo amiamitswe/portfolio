@@ -6,7 +6,7 @@ function HeroSection() {
   const [open, setOpen] = useState(false)
   return (
     <>
-    <div className="mx-auto max-w-7xl p-6 lg:px-8 xl:mt-[200px] lg:mt-[100px] mt-2">
+    <div className="mx-auto max-w-7xl p-6 lg:px-8 2xl:mt-[200px] lg:mt-[100px] mt-2">
       <div className="flex flex-col-reverse md:flex-row justify-between items-center w-full gap-y-10 lg:gap-y-0">
         <div>
           <h1 className="font-bold text-3xl sm:text-4xl lg:text-[58px] lg:leading-[70px] text-light-blue dark:text-gray4 ">

@@ -25,7 +25,10 @@ function HeroSection() {
               Get In Touch
               <AtSymbolIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
             </button>
-            <a href="https://drive.google.com/file/d/1HsgytT4oruUbui_Pnr7UHHXGhD4pKS8A/view?usp=sharing&export=download" download="Amit Samadder"
+            <a 
+            {/*href="https://drive.google.com/file/d/1HsgytT4oruUbui_Pnr7UHHXGhD4pKS8A/view?usp=sharing&export=download" */}
+              href="https://drive.google.com/drive/folders/1ajy0xUgzExeFrwpOMEfYZBwRM_nShcZy?usp=sharing"
+              download="Amit Samadder"
               target="_blank"
               rel="noreferrer"
               className="rounded-full inline-flex items-center gap-x-1.5 bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"

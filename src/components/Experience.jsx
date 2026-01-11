@@ -2,6 +2,14 @@ import SectionTitle from "./common/SectionTitle";
 import ExperienceItem from "./common/ExperianceItem";
 
 const experiences = [
+   {
+    role: "Software Engineer",
+    company: { name: "TechCare® Inc.", link: "https://techcare.co/" },
+    skills: ["React.JS","JavaScript","TypeScript","Next.JS","Zoom SDK Integration","Mental Helth Treatment Appointment Booking System","CSS","SCSS","Tailwind-CSS","Shadcn","Ant Design","Figma to html","Cursor AI", "node.js","express.js","mongodb"],
+    jobType: "Full time (Hybrid)",
+    location: "Level:08, House:1005,1007, Avenue:11, Road:09 Dhaka 1216",
+    duration: { start: "April 2025", end: "Continue" },
+  },
   {
     role: "Software Engineer",
     company: { name: "Technext IT LTD", link: "https://technext.it" },
@@ -9,7 +17,7 @@ const experiences = [
     jobType: "Full time",
     location:
       "Shyamoli, Dhaka, Bangladesh-1207",
-    duration: { start: "November 2021", end: "Continue" },
+    duration: { start: "November 2021", end: "April 2025" },
   },
   {
     role: "Front-End Engineer",

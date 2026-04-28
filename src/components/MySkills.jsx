@@ -12,7 +12,7 @@ function MySkills() {
     { title: "MongoDB", skillLabel: 45, focus: "Data modeling" },
   ];
 
-  const featuredSkills = ["React", "Next.js", "Tailwind", "TypeScript"];
+  const featuredSkills = ["JavaScript", "React", "Next.js", "Tailwind"];
 
   return (
     <section

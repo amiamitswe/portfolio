@@ -16,18 +16,18 @@ function AdditionalSkills() {
     { title: "Quick learning" },
     { title: "Client handling" },
     { title: "B2 english" },
-    { title: "Communication skill", lText: true },
+    { title: "Communication skill" },
   ];
   return (
-    <section className="mx-auto mt-24 max-w-7xl px-5 sm:px-6 lg:mt-32 lg:px-8">
+    <section className="mx-auto mt-24 max-w-7xl px-5 sm:px-6 lg:mt-28 lg:px-8">
       <SectionTitle
         title="Additional Skills"
-        info="Additional technologies and skills"
+        info="Tools, workflows, and collaboration strengths I use around my main stack."
       />
 
-      <div className="section-reveal mx-auto grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:w-9/12 lg:grid-cols-3">
-        {additionalSkills?.map((skill) => (
-          <OtherSkill key={skill.title} skill={skill} />
+      <div className="section-reveal mx-auto grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:w-10/12 lg:grid-cols-4">
+        {additionalSkills?.map((skill, index) => (
+          <OtherSkill key={skill.title} skill={skill} index={index} />
         ))}
       </div>
     </section>

@@ -1,6 +1,5 @@
 import {
   ArrowTopRightOnSquareIcon,
-  CodeBracketIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 import PropTypes from "prop-types";
@@ -11,6 +10,15 @@ function ProjectItem({ item, index }) {
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-br from-sky-500/10 via-teal-400/10 to-rose-400/10 opacity-80" />
       <div className="relative p-3 sm:p-4">
         <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-950/25 dark:border-slate-800 dark:bg-slate-900">
+          <a
+            href={item.live}
+            target="_blank"
+            rel="noreferrer"
+            className="pointer-events-none absolute right-4 top-4 z-10 inline-flex translate-y-2 items-center gap-x-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-slate-950 opacity-0 shadow-lg shadow-slate-950/20 transition duration-300 hover:bg-sky-50 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100 dark:bg-slate-950 dark:text-white dark:hover:bg-slate-900"
+          >
+            Live Preview
+            <ArrowTopRightOnSquareIcon className="h-4 w-4" aria-hidden="true" />
+          </a>
           <img
             src={item.image}
             alt={item.title}
@@ -63,28 +71,6 @@ function ProjectItem({ item, index }) {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3 border-t border-slate-200 pt-5 dark:border-slate-800">
-            <a
-              href={item.live}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-x-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
-            >
-              Live Preview
-              <ArrowTopRightOnSquareIcon className="h-4 w-4" aria-hidden="true" />
-            </a>
-            {item.github ? (
-              <a
-                href={item.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-x-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-sky-400 dark:hover:text-sky-300"
-              >
-                View Code
-                <CodeBracketIcon className="h-4 w-4" aria-hidden="true" />
-              </a>
-            ) : null}
-        </div>
       </div>
     </article>
   );

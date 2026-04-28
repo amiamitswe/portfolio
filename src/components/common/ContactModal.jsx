@@ -40,7 +40,7 @@ export default function ContactModal({ open, setOpen }) {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-20"
+        className="relative z-40"
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
@@ -53,7 +53,7 @@ export default function ContactModal({ open, setOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -67,14 +67,25 @@ export default function ContactModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-body-light dark:bg-body-dark px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 w-full">
+              <Dialog.Panel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
+                <div className="mb-6">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
+                    Contact
+                  </p>
+                  <Dialog.Title className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
+                    Tell me about your project
+                  </Dialog.Title>
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    Share a few details and I will get back with a clear next step.
+                  </p>
+                </div>
                 <form ref={form} onSubmit={sentEmail}>
                   <div className="mb-4">
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400"
+                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
-                      Your Name <span className="text-[10px]">(Required)</span>
+                      Your Name <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -82,7 +93,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="text"
                         name="user_name"
                         id="name"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-gray-50 bg-gray4 dark:bg-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         placeholder="Your name please"
                       />
                     </div>
@@ -90,9 +101,9 @@ export default function ContactModal({ open, setOpen }) {
                   <div className="mb-4">
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400"
+                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
-                      Your Email <span className="text-[10px]">(Required)</span>
+                      Your Email <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -100,7 +111,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="email"
                         name="user_email"
                         id="email"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-gray-50 bg-gray4 dark:bg-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         placeholder="you@example.com"
                       />
                     </div>
@@ -108,10 +119,10 @@ export default function ContactModal({ open, setOpen }) {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400"
+                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
                       Add your Message{" "}
-                      <span className="text-[10px]">(Required)</span>
+                      <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -120,7 +131,7 @@ export default function ContactModal({ open, setOpen }) {
                         name="message"
                         id="message"
                         placeholder="Message"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-gray-50 bg-gray4 dark:bg-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         defaultValue={""}
                       />
                     </div>
@@ -129,11 +140,11 @@ export default function ContactModal({ open, setOpen }) {
                     <button
                       type="submit"
                       disabled={loading}
-                      className={`inline-flex w-full items-center gap-3 justify-center rounded-md bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5]  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:col-start-2 ${
+                      className={`inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200 sm:col-start-2 ${
                         loading ? "cursor-not-allowed" : "cursor-pointer"
                       }`}
                     >
-                      Sent{" "}
+                      Send{" "}
                       {loading ? (
                         <svg
                           className="animate-spin h-5 w-5 text-white"
@@ -159,7 +170,7 @@ export default function ContactModal({ open, setOpen }) {
                     </button>
                     <button
                       type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-body-light dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                      className="mt-3 inline-flex w-full justify-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800 sm:col-start-1 sm:mt-0"
                       onClick={() => setOpen(false)}
                       ref={cancelButtonRef}
                     >

@@ -10,6 +10,7 @@ import AdditionalSkills from "./components/AdditionalSkills";
 import AboutMe from "./components/AboutMe";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="relative isolate min-h-screen overflow-x-hidden">
+      <div className="ai-background" aria-hidden="true" />
       <Header onContactClick={() => setContactOpen(true)} />
       <HeroSection onContactClick={() => setContactOpen(true)} />
       <StatsSection />
@@ -52,9 +54,10 @@ function App() {
       <AboutMe />
       <Experience />
       <Education />
+      <Footer onContactClick={() => setContactOpen(true)} />
       <ContactModal open={contactOpen} setOpen={setContactOpen} />
       <Toaster position="bottom-right" reverseOrder={false} />
-    </>
+    </div>
   );
 }
 

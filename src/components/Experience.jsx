@@ -69,9 +69,10 @@ const experiences = [
 function Experience() {
   return (
     <section id="experience" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
-      <SectionTitle title="Experience" info="Teams, products, and interfaces I have worked on" />
+      <SectionTitle title="Experience" info="A timeline of product teams, dashboard work, and front-end engineering growth" />
 
-      <div className="section-reveal mx-auto w-full lg:w-10/12">
+      <div className="section-reveal relative mx-auto w-full lg:w-10/12">
+        <div className="absolute bottom-6 left-4 top-6 hidden w-px bg-gradient-to-b from-sky-400 via-teal-300 to-rose-400 md:block" />
         {experiences?.map((experience, index) => (
           <ExperienceItem key={index} experience={experience} />
         ))}

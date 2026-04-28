@@ -10,8 +10,10 @@ function MyProjects() {
       title: "WeRaise",
       image: weraiseImage,
       description:
-        "WeRaise, worked on front-end, dashboard using reactjs, bootstrap, and react falcon theme",
+        "A dashboard-focused fundraising interface with responsive data views, clean navigation, and reusable React UI patterns.",
       techs: ["reactjs", "bootstrap", "react falcon theme"],
+      category: "Dashboard UI",
+      impact: "Admin experience",
       github:'',
       live: 'https://amit-weraise.netlify.app/'
     },
@@ -20,17 +22,19 @@ function MyProjects() {
       title: "Wise Clone",
       image: wiseImage,
       description:
-        "Wise clone, worked on front-end, clone the wise site (payment system ui) using reactjs, bootstrap, react falcon theme",
+        "A payment flow interface inspired by Wise, focused on multi-step UX, currency inputs, and polished responsive layouts.",
       techs: ["reactjs", "css", "bootstrap", "react falcon theme"],
+      category: "Payment Flow",
+      impact: "Conversion UI",
       github:'',
       live: 'https://falcon-react-wise-wizard.vercel.app/'
     },
   ];
   return (
     <section id="projects" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
-      <SectionTitle title="Featured Projects" info="Selected product interfaces and front-end builds" />
+      <SectionTitle title="Featured Projects" info="A tighter showcase for the projects here now, ready to scale when more are added" />
 
-      <div className="section-reveal grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="section-reveal grid grid-cols-1 gap-6 lg:grid-cols-2">
         {projects?.map((project) => (
           <ProjectItem key={project.id} item={project} />
         ))}

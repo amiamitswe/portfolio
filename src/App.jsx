@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import ContactModal from "./components/common/ContactModal";
+import StatsSection from "./components/StatsSection";
 import MyTechStack from "./components/MyTechStack";
 import MyProjects from "./components/MyProjects";
 import MySkills from "./components/MySkills";
@@ -11,6 +13,8 @@ import Education from "./components/Education";
 import { Toaster } from "react-hot-toast";
 
 function App() {
+  const [contactOpen, setContactOpen] = useState(false);
+
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   useState(() => {
     // console.log(localStorage?.theme)
@@ -38,8 +42,9 @@ function App() {
 
   return (
     <>
-      <Header />
-      <HeroSection />
+      <Header onContactClick={() => setContactOpen(true)} />
+      <HeroSection onContactClick={() => setContactOpen(true)} />
+      <StatsSection />
       <MyTechStack />
       <MySkills />
       <AdditionalSkills />
@@ -47,6 +52,7 @@ function App() {
       <AboutMe />
       <Experience />
       <Education />
+      <ContactModal open={contactOpen} setOpen={setContactOpen} />
       <Toaster position="bottom-right" reverseOrder={false} />
     </>
   );

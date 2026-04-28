@@ -6,7 +6,61 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: Poppins, 'sans-serif';
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(241, 245, 249, 0.9)),
+      #f8fafc;
+  }
+
+  .dark body {
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(17, 24, 39, 0.96)),
+      #111827;
+  }
+}
+
+@layer utilities {
+  .section-reveal {
+    animation: section-reveal 0.7s ease both;
+  }
+
+  .card-lift {
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-6px);
+  }
+
+  .animate-skill-fill {
+    animation: skill-fill 1s ease-out both;
+    width: var(--skill-width);
+  }
+
+  @keyframes section-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes skill-fill {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: var(--skill-width);
+    }
   }
 }

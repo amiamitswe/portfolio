@@ -8,20 +8,20 @@ function AboutMe() {
     "At 28, I'm passionate about the convergence of technology and creativity. Every project is a canvas for innovation, a chance to weave a unique narrative. Join me in this journey of pixels and passion, where each line of code is a brushstroke, and together, we'll create digital landscapes that leave a lasting impression.",
   ];
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
-      <SectionTitle title="About" info="Info About Myself" />
+    <section id="about" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
+      <SectionTitle title="About" info="A quick look at how I think, build, and collaborate" />
 
-      <div className="grid grid-cols-1 gap-5 text-gray5 dark:text-gray3 ">
+      <div className="section-reveal mx-auto grid max-w-4xl grid-cols-1 gap-5 rounded-lg border border-slate-200 bg-white/80 p-5 text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-300 sm:p-8">
         {aboutMe?.map((text, index) => (
           <p
-            className="lg:text-lg text-base text-justify"
+            className="text-base leading-8"
             key={index}
           >
             {text}
           </p>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

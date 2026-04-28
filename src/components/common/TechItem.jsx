@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 function TechItem({item}) {
   return (
-    <div className="hover:lg:scale-150 cursor-pointer transform duration-200">
-      <a href={item.url} target="_blank" rel="noreferrer">
-        <div className="lg:h-[100px] sm:h-[80px] h-[50px] lg:w-[100px] sm:w-[80px] w-[50px]">
+    <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+      <a href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-center">
+        <div className="h-12 w-12 sm:h-14 sm:w-14">
         <item.item />
         </div>
       </a>

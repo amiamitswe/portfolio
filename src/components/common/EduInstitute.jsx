@@ -12,19 +12,19 @@ function EduInstitute({ edu }) {
   if (edu.stage === "b.sc") LogoIcon = AcademicCapIcon;
 
   return (
-    <div className="shadow-md border border-gray4 dark:border-gray1 rounded-lg p-5">
-      <LogoIcon className="w-4/12 mx-auto mb-5 text-gray6 dark:text-gray1" />
+    <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+      <LogoIcon className="mx-auto mb-5 h-14 w-14 text-sky-600 dark:text-sky-300" />
 
-      <div className="text-center text-gray1 dark:text-gray2">
-        <p className="text-xl font-bold mb-2 uppercase">{edu.stage}</p>
-        <p className="text-xl mb-2 text-body-dark dark:text-body-light uppercase">
-          <a href={edu?.link} target="_blank" rel="noreferrer">
+      <div className="text-center text-slate-600 dark:text-slate-300">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">{edu.stage}</p>
+        <p className="mb-3 text-lg font-bold uppercase text-slate-950 dark:text-white">
+          <a className="hover:text-sky-600 dark:hover:text-sky-300" href={edu?.link} target="_blank" rel="noreferrer">
             {edu.institute}
           </a>
         </p>
-        <p className="text-sm mb-1">{edu.location}</p>
-        <p className="text-sm mb-1">{edu.group}</p>
-        <p className="text-sm mb-1">{edu.passingYear}</p>
+        <p className="mb-1 text-sm">{edu.location}</p>
+        <p className="mb-1 text-sm">{edu.group}</p>
+        <p className="mb-1 text-sm">{edu.passingYear}</p>
         <p className="text-sm">{edu.board}</p>
       </div>
     </div>

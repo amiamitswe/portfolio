@@ -1,26 +1,33 @@
 import { AtSymbolIcon, CloudArrowDownIcon } from "@heroicons/react/20/solid";
-import ContactModal from "./common/ContactModal";
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-function HeroSection() {
-  const [open, setOpen] = useState(false)
+function HeroSection({ onContactClick }) {
   return (
-    <>
-    <div className="mx-auto max-w-7xl p-6 lg:px-8 2xl:mt-[200px] lg:mt-[100px] mt-2">
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center w-full gap-y-10 lg:gap-y-0">
+    <section
+      id="home"
+      className="section-reveal relative mx-auto max-w-7xl scroll-mt-24 px-5 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-14 lg:pt-16"
+    >
+      <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
-          <h1 className="font-bold text-3xl sm:text-4xl lg:text-[58px] lg:leading-[70px] text-light-blue dark:text-gray4 ">
-            Hi 👋, <br /> My name is <br />
-            <span className="bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] bg-clip-text text-transparent">
-              Amit Samadder
-            </span>{" "}
-            <br />I build things for web
+          <p className="mb-5 inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700 dark:border-sky-400/30 dark:bg-sky-400/10 dark:text-sky-200">
+            Front-End Engineer in Dhaka
+          </p>
+          <h1 className="max-w-4xl text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            I build polished, responsive web products with{" "}
+            <span className="bg-gradient-to-r from-sky-500 via-teal-400 to-rose-500 bg-clip-text text-transparent">
+              React
+            </span>
+            .
           </h1>
-          <div className="flex gap-4 mt-10">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
+            I am Amit Samadder, a front-end developer focused on clean UI,
+            scalable component systems, and fast product experiences.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
-              onClick={()=> setOpen(true)}
-              className="rounded-lg inline-flex items-center gap-x-1.5 bg-gradient-to-l from-[#13B0F5] to-[#E70FAA] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:from-[#E70FAA] hover:to-[#13B0F5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={onContactClick}
+              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
             >
               Get In Touch
               <AtSymbolIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
@@ -30,7 +37,7 @@ function HeroSection() {
               download="Amit Samadder"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full inline-flex items-center gap-x-1.5 bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800"
             >
               Download CV
               <CloudArrowDownIcon
@@ -40,20 +47,47 @@ function HeroSection() {
             </a>
           </div>
         </div>
-        <div>
-          <div className="lg:h-[450px] lg:w-[450px] sm:h-[350px] sm:w-[350px] rounded-full bg-gradient-to-b from-[#E70FAA] to-[#00C0FD] p-1">
-            <img
-              className="h-full w-full rounded-full border-8 border-transparent"
-              src="https://avatars.githubusercontent.com/u/30245543?v=4"
-              alt="img"
-            />
+        <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
+          <div className="absolute inset-x-8 bottom-0 top-10 rounded-lg border border-slate-200 bg-white/70 shadow-2xl shadow-slate-950/10 dark:border-slate-800 dark:bg-slate-900/70" />
+          <div className="relative rounded-lg border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+            <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800">
+              <div className="mx-auto aspect-square max-w-[360px] rounded-full bg-gradient-to-b from-sky-400 via-teal-300 to-rose-400 p-1">
+                <img
+                  className="h-full w-full rounded-full border-8 border-white object-cover dark:border-slate-900"
+                  src="https://avatars.githubusercontent.com/u/30245543?v=4"
+                  alt="Amit Samadder"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-3 pt-4 text-center">
+              <div>
+                <p className="text-lg font-bold text-slate-950 dark:text-white">
+                  React
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">UI</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-slate-950 dark:text-white">
+                  Next.js
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Apps</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-slate-950 dark:text-white">
+                  Tailwind
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Design</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <ContactModal open={open} setOpen={setOpen} />
-    </>
+    </section>
   );
 }
+
+HeroSection.propTypes = {
+  onContactClick: PropTypes.func.isRequired,
+};
 
 export default HeroSection;

@@ -18,23 +18,23 @@ function Skill({ title, skill }) {
     skillStatus = "Advanced";
   }
 
-  const skillCalculator = skill <= 100 ? skill < 0 ? 0: skill : 100
+  const skillCalculator = skill <= 100 ? skill < 0 ? 0 : skill : 100;
 
   return (
-    <div className="mb-6">
-      <div className="flex justify-between items-center px-4">
-        <p className="text-light-blue dark:text-gray4 lg:text-lg text-sm mb-2">
+    <div>
+      <div className="mb-2 flex items-center justify-between">
+        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 sm:text-base">
           {title || "Skill"}
         </p>
-        <p className="text-light-blue dark:text-gray4 lg:text-lg text-sm mb-2">{skillStatus}</p>
+        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{skillStatus}</p>
       </div>
-      <div className="w-full h-[20px] bg-light-blue relative rounded-xl overflow-hidden">
-        <span className="text-sm text-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+      <div className="relative h-3 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+        <span className="sr-only">
           {skillCalculator}%
         </span>
         <div
-          className="absolute top-0 left-0 h-[20px] bg-gradient-to-r from-[#E70FAA] to-[#00C0FD] rounded-xl overflow-hidden transition-all ease-in-out duration-100"
-          style={{ width: `${skillCalculator}%` }}
+          className="animate-skill-fill absolute left-0 top-0 h-3 rounded-full bg-gradient-to-r from-sky-500 via-teal-400 to-rose-500"
+          style={{ "--skill-width": `${skillCalculator}%` }}
         />
       </div>
     </div>

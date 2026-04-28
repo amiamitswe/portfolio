@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 function OtherSkill({ skill }) {
   return (
-    <div className={`text-light-blue dark:text-gray3 ${skill.lText ? 'sm:col-span-1 col-span-2' : 'col-span-1'}`}>
-      <p className="flex items-start gap-x-4">
+    <div className={`rounded-lg border border-slate-200 bg-white/80 p-4 text-slate-700 shadow-sm dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200 ${skill.lText ? 'sm:col-span-1' : 'col-span-1'}`}>
+      <p className="flex items-start gap-x-3 text-sm font-medium sm:text-base">
         <span><CheckIcon /></span>
         {skill.title}
       </p>

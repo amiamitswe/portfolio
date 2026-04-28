@@ -19,18 +19,18 @@ function AdditionalSkills() {
     { title: "Communication skill", lText: true },
   ];
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
+    <section className="mx-auto mt-24 max-w-7xl px-5 sm:px-6 lg:mt-32 lg:px-8">
       <SectionTitle
         title="Additional Skills"
         info="Additional technologies and skills"
       />
 
-      <div className="lg:w-9/12 w-full mx-auto grid md:grid-cols-3 grid-cols-2 gap-4">
+      <div className="section-reveal mx-auto grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:w-9/12 lg:grid-cols-3">
         {additionalSkills?.map((skill) => (
           <OtherSkill key={skill.title} skill={skill} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

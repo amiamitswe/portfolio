@@ -1,60 +1,59 @@
-import { CodeBracketIcon, LinkIcon } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
 import PropTypes from "prop-types";
 function ProjectItem({ item }) {
-  // const item = {
-  //   image: "https://random.imagecdn.app/500/500",
-  //   title: "Project Tile goes here",
-  //   description:
-  //     "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
-  //   techs: ["HTML", "JavaScript", "SASS", "React"],
-  // };
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray5 shadow-md">
-      <div className="aspect-h-4 aspect-w-3 bg-white dark:bg-gray5 sm:aspect-none group-hover:opacity-75 sm:h-56 transition-all duration-200">
+    <article className="card-lift group relative flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="overflow-hidden bg-slate-100 dark:bg-slate-800">
         <img
           src={item.image}
           alt={item.title}
-          className="h-full w-full object-cover object-center sm:h-full sm:w-full"
+          className="h-64 w-full object-cover object-center transition duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-1 flex-col justify-between space-y-2">
-        <div className="p-4 pb-0">
-          <h3 className="text-[28px] leading-[26px] font-normal text-black dark:text-gray3 mb-4">{item.title}</h3>
-          <p className="text-lg leading-[26px] text-gray1 dark:text-gray3 font-light mb-3">{item.description}</p>
-          <p className="inline-block font-normal text-base text-light-blue dark:text-gray3">
-            Tech stack :{" "}
-            <span className="font-thin">{item?.techs.map((tech) => (
-              <span className="inline-block mx-1" key={tech}>
+      <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+        <div>
+          <div className="mb-4 flex flex-wrap gap-2">
+            {item?.techs.map((tech) => (
+              <span
+                className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                key={tech}
+              >
                 {tech}
               </span>
-            ))}</span>
+            ))}
+          </div>
+          <h3 className="mb-3 text-2xl font-bold text-slate-950 dark:text-white">
+            {item.title}
+          </h3>
+          <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
+            {item.description}
           </p>
         </div>
 
-
-          <div className="mt-0 flex">
-            <div className="flex w-0 flex-1">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href={item.live}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-x-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+            >
+              Live Preview
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" aria-hidden="true" />
+            </a>
+            {item.github ? (
               <a
-                href={item.live} target="_blank" rel="noreferrer"
-                className="inline-flex w-0 flex-1 items-center justify-center gap-x-3 py-4 text-base font-normal text-body-dark dark:text-gray-100 underline underline-offset-4"
+                href={item.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-x-2 rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-sky-400 dark:hover:text-sky-300"
               >
-                <LinkIcon className="h-5 w-5 text-body-dark dark:text-gray-100" aria-hidden="true" />
-                Live Preview
-              </a>
-            </div>
-            <div className="-ml-px flex w-0 flex-1">
-              <a
-                href={item.github || '#'} target="_blank" rel="noreferrer"
-                className="inline-flex w-0 flex-1 items-center justify-center gap-x-3 py-4 text-base font-normal text-body-dark dark:text-gray-100 underline underline-offset-4"
-                
-              >
-                <CodeBracketIcon className="h-5 w-5 text-body-dark dark:text-gray-100" aria-hidden="true" />
                 View Code
+                <CodeBracketIcon className="h-4 w-4" aria-hidden="true" />
               </a>
-            </div>
+            ) : null}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

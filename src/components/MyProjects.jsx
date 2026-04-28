@@ -27,15 +27,15 @@ function MyProjects() {
     },
   ];
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
-      <SectionTitle title="Projects" info="Things I’ve built so far" />
+    <section id="projects" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
+      <SectionTitle title="Featured Projects" info="Selected product interfaces and front-end builds" />
 
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="section-reveal grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects?.map((project) => (
           <ProjectItem key={project.id} item={project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

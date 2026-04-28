@@ -54,18 +54,18 @@ function MyTechStack() {
   ];
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
+    <section id="tech-stack" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
       <SectionTitle
         title="My Tech Stack"
         info="Technologies I’ve been working with recently"
       />
 
-      <div className="grid lg:grid-cols-6 grid-cols-4 gap-8 place-items-center">
+      <div className="section-reveal grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9">
         {techItem?.map((item) => (
           <TechItem key={item.id} item={item} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

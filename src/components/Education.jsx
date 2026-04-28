@@ -33,15 +33,15 @@ const educationTrack = [
 
 function Education() {
   return (
-    <div className="max-w-7xl w-full mx-auto p-6 lg:px-8 lg:mt-[200px] mt-28">
-      <SectionTitle title="Education" info="My Education Background" />
+    <section className="mx-auto my-24 max-w-7xl px-5 sm:px-6 lg:my-32 lg:px-8">
+      <SectionTitle title="Education" info="Academic foundation behind my engineering work" />
 
-      <div className="lg:w-11/12 w-full mx-auto grid md:grid-cols-3 grid-cols-1 lg:gap-6 md:gap-3 gap-5">
+      <div className="section-reveal mx-auto grid w-full grid-cols-1 gap-5 md:grid-cols-3 lg:w-11/12">
         {educationTrack?.map((edu) => (
           <EduInstitute key={edu.stage} edu={edu} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

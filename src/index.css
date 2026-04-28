@@ -79,9 +79,22 @@
     transform: translateY(-6px);
   }
 
-  .animate-skill-fill {
-    animation: skill-fill 1s ease-out both;
+  .skill-bar-fill {
+    animation: skill-fill 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--skill-delay, 0ms);
+    box-shadow: 0 0 18px rgba(14, 165, 233, 0.35);
+    overflow: hidden;
     width: var(--skill-width);
+  }
+
+  .skill-bar-fill::after {
+    animation: skill-shine 1.35s ease-in-out both;
+    animation-delay: calc(var(--skill-delay, 0ms) + 280ms);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.58), transparent);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: translateX(-110%);
   }
 
   @keyframes section-reveal {
@@ -120,11 +133,21 @@
 
   @keyframes skill-fill {
     from {
-      width: 0;
+      width: 0%;
     }
 
     to {
       width: var(--skill-width);
+    }
+  }
+
+  @keyframes skill-shine {
+    from {
+      transform: translateX(-110%);
+    }
+
+    to {
+      transform: translateX(110%);
     }
   }
 }

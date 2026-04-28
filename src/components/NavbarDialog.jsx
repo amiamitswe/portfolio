@@ -9,6 +9,7 @@ function NavbarDialog({
   mobileMenuOpen,
   setMobileMenuOpen,
   navigation,
+  socialLinks,
   onContactClick,
 }) {
   const handleContactClick = () => {
@@ -81,7 +82,23 @@ function NavbarDialog({
                     )}
                   </div>
                   <div className="py-6">
-                    <ThemeToggle />
+                    <div className="flex items-center justify-between gap-4">
+                      <ThemeToggle />
+                      <div className="flex items-center gap-2">
+                        {socialLinks.map(({ name, href, icon: Icon }) => (
+                          <a
+                            key={name}
+                            href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={name}
+                            className="inline-flex rounded-md p-1 transition hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                          >
+                            <Icon />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -101,6 +118,13 @@ NavbarDialog.propTypes = {
       name: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       isAction: PropTypes.bool,
+    })
+  ).isRequired,
+  socialLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      icon: PropTypes.elementType.isRequired,
     })
   ).isRequired,
   onContactClick: PropTypes.func.isRequired,

@@ -10,7 +10,7 @@ const quickLinks = [
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/amiamitswe" },
-  { name: "Twitter", href: "https://twitter.com/amiamitswe" },
+  { name: "X", href: "https://x.com/amiamitswe" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/amiamitswe" },
 ];
 

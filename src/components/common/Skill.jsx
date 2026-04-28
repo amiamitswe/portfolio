@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Skill({ title, skill }) {
+function Skill({ title, skill, focus, index }) {
   let skillStatus;
   if (skill < 50) {
     skillStatus = "New";
@@ -21,20 +21,37 @@ function Skill({ title, skill }) {
   const skillCalculator = skill <= 100 ? skill < 0 ? 0 : skill : 100;
 
   return (
-    <div>
-      <div className="mb-2 flex items-center justify-between">
-        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 sm:text-base">
-          {title || "Skill"}
-        </p>
-        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{skillStatus}</p>
+    <div className="group rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-500/10 dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-sky-500/50">
+      <div className="mb-3 flex items-start justify-between gap-3">
+        <div>
+          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            {title || "Skill"}
+          </p>
+          {focus ? (
+            <p className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+              {focus}
+            </p>
+          ) : null}
+        </div>
+        <div className="shrink-0 text-right">
+          <p className="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-bold text-sky-700 dark:bg-sky-400/10 dark:text-sky-200">
+            {skillCalculator}%
+          </p>
+          <p className="mt-1 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+            {skillStatus}
+          </p>
+        </div>
       </div>
-      <div className="relative h-3 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+      <div className="relative h-2.5 w-full overflow-hidden rounded-full bg-slate-200 shadow-inner dark:bg-slate-800">
         <span className="sr-only">
           {skillCalculator}%
         </span>
         <div
-          className="animate-skill-fill absolute left-0 top-0 h-3 rounded-full bg-gradient-to-r from-sky-500 via-teal-400 to-rose-500"
-          style={{ "--skill-width": `${skillCalculator}%` }}
+          className="skill-bar-fill absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-sky-500 via-teal-400 to-rose-500"
+          style={{
+            "--skill-width": `${skillCalculator}%`,
+            "--skill-delay": `${index * 90}ms`,
+          }}
         />
       </div>
     </div>
@@ -44,6 +61,13 @@ function Skill({ title, skill }) {
 Skill.propTypes = {
   title: PropTypes.string.isRequired,
   skill: PropTypes.number.isRequired,
+  focus: PropTypes.string,
+  index: PropTypes.number,
+};
+
+Skill.defaultProps = {
+  focus: "",
+  index: 0,
 };
 
 export default Skill;

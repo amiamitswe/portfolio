@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import GithubIcon from "../assets/icons/GithubIcon";
-import TwitterIcon from "../assets/icons/TwitterIcon";
+import XIcon from "../assets/icons/XIcon";
 import LinkedinIcon from "../assets/icons/LinkedinIcon";
 import ThemeToggle from "./ThemeToggle";
 import NavbarDialog from "./NavbarDialog";
@@ -24,9 +24,9 @@ const socialLinks = [
     icon: GithubIcon,
   },
   {
-    name: "Twitter",
-    href: "https://twitter.com/amiamitswe",
-    icon: TwitterIcon,
+    name: "X",
+    href: "https://x.com/amiamitswe",
+    icon: XIcon,
   },
   {
     name: "LinkedIn",
@@ -102,6 +102,7 @@ export default function Header({ onContactClick }) {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         navigation={navigation}
+        socialLinks={socialLinks}
         onContactClick={onContactClick}
       />
     </header>

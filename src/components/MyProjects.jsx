@@ -14,6 +14,8 @@ function MyProjects() {
       techs: ["reactjs", "bootstrap", "react falcon theme"],
       category: "Dashboard UI",
       impact: "Admin experience",
+      year: "2024",
+      type: "Dashboard",
       github:'',
       live: 'https://amit-weraise.netlify.app/'
     },
@@ -26,17 +28,19 @@ function MyProjects() {
       techs: ["reactjs", "css", "bootstrap", "react falcon theme"],
       category: "Payment Flow",
       impact: "Conversion UI",
+      year: "2024",
+      type: "Web App",
       github:'',
       live: 'https://falcon-react-wise-wizard.vercel.app/'
     },
   ];
   return (
     <section id="projects" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
-      <SectionTitle title="Featured Projects" info="A tighter showcase for the projects here now, ready to scale when more are added" />
+      <SectionTitle title="Featured Projects" info="Selected UI builds with responsive layouts, polished interactions, and production-ready structure." />
 
-      <div className="section-reveal grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {projects?.map((project) => (
-          <ProjectItem key={project.id} item={project} />
+      <div className="section-reveal grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {projects?.map((project, index) => (
+          <ProjectItem key={project.id} item={project} index={index} />
         ))}
       </div>
     </section>

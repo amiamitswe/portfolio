@@ -22,11 +22,11 @@ export default function ContactModal({ open, setOpen }) {
       .sendForm(service, template, form.current, publicKey)
       .then(
         (result) => {
-          toast.success("Email sent successful");
+          toast.success("Email sent successfully");
           console.log(result.text);
         },
         (error) => {
-          toast.error("Email sent failed");
+          toast.error("Failed to send email");
           console.log(error.text);
         }
       )
@@ -76,7 +76,7 @@ export default function ContactModal({ open, setOpen }) {
                     Tell me about your project
                   </Dialog.Title>
                   <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                    Share a few details and I will get back with a clear next step.
+                    Share a few details and I will get back to you with a clear next step.
                   </p>
                 </div>
                 <form ref={form} onSubmit={sentEmail}>
@@ -85,7 +85,7 @@ export default function ContactModal({ open, setOpen }) {
                       htmlFor="name"
                       className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
-                      Your Name <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
+                      Your name <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -94,7 +94,7 @@ export default function ContactModal({ open, setOpen }) {
                         name="user_name"
                         id="name"
                         className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
-                        placeholder="Your name please"
+                        placeholder="Your name"
                       />
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export default function ContactModal({ open, setOpen }) {
                       htmlFor="email"
                       className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
-                      Your Email <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
+                      Your email <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -121,7 +121,7 @@ export default function ContactModal({ open, setOpen }) {
                       htmlFor="message"
                       className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
                     >
-                      Add your Message{" "}
+                      Message{" "}
                       <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
                     </label>
                     <div className="mt-2">
@@ -130,7 +130,7 @@ export default function ContactModal({ open, setOpen }) {
                         required
                         name="message"
                         id="message"
-                        placeholder="Message"
+                        placeholder="Tell me a little about the project"
                         className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         defaultValue={""}
                       />

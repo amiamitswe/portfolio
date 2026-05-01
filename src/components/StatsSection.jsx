@@ -7,17 +7,17 @@ import {
 const stats = [
   {
     label: "Years building web products",
-    value: "5+",
+    value: "6.5+",
     icon: RocketLaunchIcon,
   },
   {
-    label: "Technologies in active toolkit",
+    label: "Tools in active toolkit",
     value: "18",
     icon: Squares2X2Icon,
   },
   {
-    label: "Public repositories",
-    value: "36",
+    label: "Projects delivered",
+    value: "14+",
     icon: CodeBracketSquareIcon,
   },
 ];

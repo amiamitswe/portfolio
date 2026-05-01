@@ -7,9 +7,9 @@ import {
 
 function EduInstitute({ edu }) {
   let LogoIcon;
-  if (edu.stage === "ssc") LogoIcon = PencilIcon;
-  if (edu.stage === "hsc") LogoIcon = BookOpenIcon;
-  if (edu.stage === "b.sc") LogoIcon = AcademicCapIcon;
+  if (edu.stage === "SSC") LogoIcon = PencilIcon;
+  if (edu.stage === "HSC") LogoIcon = BookOpenIcon;
+  if (edu.stage === "B.Sc.") LogoIcon = AcademicCapIcon;
 
   return (
     <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">

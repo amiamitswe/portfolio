@@ -1,7 +1,7 @@
 import { AtSymbolIcon, CloudArrowDownIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 
-function HeroSection({ onContactClick }) {
+function HeroSection({ onContactClick, onCvClick }) {
   return (
     <section
       id="home"
@@ -10,7 +10,7 @@ function HeroSection({ onContactClick }) {
       <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <p className="mb-5 inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700 dark:border-sky-400/30 dark:bg-sky-400/10 dark:text-sky-200">
-            Front-End Engineer in Dhaka
+            Front-end Engineer in Dhaka
           </p>
           <h1 className="max-w-4xl text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl xl:text-7xl">
             I build polished, responsive web products with{" "}
@@ -29,22 +29,20 @@ function HeroSection({ onContactClick }) {
               onClick={onContactClick}
               className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
             >
-              Get In Touch
+              Get in Touch
               <AtSymbolIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
             </button>
-            <a
-              href="https://drive.google.com/drive/folders/1ajy0xUgzExeFrwpOMEfYZBwRM_nShcZy?usp=sharing"
-              download="Amit Samadder"
-              target="_blank"
-              rel="noreferrer"
+            <button
+              type="button"
+              onClick={onCvClick}
               className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800"
             >
-              Download CV
+              View CV
               <CloudArrowDownIcon
                 className="-mr-0.5 h-5 w-5"
                 aria-hidden="true"
               />
-            </a>
+            </button>
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
@@ -88,6 +86,7 @@ function HeroSection({ onContactClick }) {
 
 HeroSection.propTypes = {
   onContactClick: PropTypes.func.isRequired,
+  onCvClick: PropTypes.func.isRequired,
 };
 
 export default HeroSection;

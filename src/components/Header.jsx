@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import GithubIcon from "../assets/icons/GithubIcon";
@@ -9,13 +9,16 @@ import NavbarDialog from "./NavbarDialog";
 import Logo from "../assets/logo/Logo";
 
 const navigation = [
-  { name: "Home", href: "#home" },
   { name: "Tech Stack", href: "#tech-stack" },
-  { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact", isAction: true },
 ];
+
+const activeSectionMap = {
+  skills: "tech-stack",
+};
 
 const socialLinks = [
   {
@@ -37,6 +40,56 @@ const socialLinks = [
 
 export default function Header({ onContactClick }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sectionIds = [
+      "home",
+      "tech-stack",
+      "skills",
+      "experience",
+      "projects",
+      "about",
+    ];
+
+    let frameId;
+
+    const updateActiveSection = () => {
+      const offsetPosition = window.scrollY + 140;
+      let currentSection = sectionIds[0];
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+
+        if (section && section.offsetTop <= offsetPosition) {
+          currentSection = id;
+        }
+      });
+
+      setActiveSection(activeSectionMap[currentSection] || currentSection);
+    };
+
+    const handleScroll = () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      frameId = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/85 shadow-sm backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/85">
@@ -58,7 +111,7 @@ export default function Header({ onContactClick }) {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex items-center lg:gap-x-8">
+        <div className="hidden lg:flex items-center lg:gap-x-5">
           {navigation.map((item) =>
             item.isAction ? (
               <button
@@ -74,7 +127,17 @@ export default function Header({ onContactClick }) {
               <a
                 key={item.name}
                 href={item.href}
-                className="font-dm-sans text-sm font-semibold leading-6 text-slate-600 transition hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-300"
+                onClick={() => setActiveSection(item.href.replace("#", ""))}
+                aria-current={
+                  activeSection === item.href.replace("#", "")
+                    ? "page"
+                    : undefined
+                }
+                className={`rounded-full px-3 py-2 font-dm-sans text-sm font-semibold leading-6 transition ${
+                  activeSection === item.href.replace("#", "")
+                    ? "bg-sky-50 text-sky-700 dark:bg-sky-400/10 dark:text-sky-300"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-sky-300"
+                }`}
               >
                 {item.name}
               </a>
@@ -89,7 +152,7 @@ export default function Header({ onContactClick }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={name}
-                className="inline-flex rounded-md p-1 transition hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-sky-300"
               >
                 <Icon />
               </a>
@@ -103,6 +166,8 @@ export default function Header({ onContactClick }) {
         setMobileMenuOpen={setMobileMenuOpen}
         navigation={navigation}
         socialLinks={socialLinks}
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
         onContactClick={onContactClick}
       />
     </header>

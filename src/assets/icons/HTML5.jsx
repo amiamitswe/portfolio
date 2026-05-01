@@ -1,4 +1,4 @@
-function HTML5() {
+function Html5Icon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,4 +27,4 @@ function HTML5() {
   );
 }
 
-export default HTML5;
+export default Html5Icon;

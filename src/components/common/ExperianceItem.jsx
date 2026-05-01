@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import { CalendarIcon, MapPinIcon, WindowIcon } from "@heroicons/react/24/outline";
 
 function ExperienceItem({ experience }) {
-  const isCurrent = experience?.duration?.end?.toLowerCase() === "continue";
+  const endDate = experience?.duration?.end?.toLowerCase();
+  const isCurrent = endDate === "continue" || endDate === "present";
 
   return (
     <div className="relative mb-5 pl-0 last:mb-0 md:pl-10">
@@ -40,8 +41,40 @@ function ExperienceItem({ experience }) {
           <WindowIcon className="h-5" />
           {experience?.jobType}
         </p>
+        {experience?.highlights?.length ? (
+          <ul className="mt-4 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+            {experience.highlights.map((highlight) => (
+              <li key={highlight} className="flex gap-2">
+                <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-sky-500" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        {experience?.projects?.length ? (
+          <div className="mt-5 grid gap-3">
+            {experience.projects.map((project) => (
+              <div
+                key={project.name}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/80"
+              >
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm font-bold text-slate-950 dark:text-white">
+                    {project.name}
+                  </p>
+                  <span className="text-xs font-semibold text-sky-600 dark:text-sky-300">
+                    {project.meta}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  {project.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : null}
         <div className="mt-4 flex flex-wrap gap-2">
-          {experience?.skills?.slice(0, 10).map((skill) => (
+          {experience?.skills?.map((skill) => (
             <span
               key={skill}
               className="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium capitalize text-slate-600 ring-1 ring-inset ring-slate-500/10 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-400/20"
@@ -49,11 +82,6 @@ function ExperienceItem({ experience }) {
               {skill}
             </span>
           ))}
-          {experience?.skills?.length > 10 ? (
-            <span className="inline-flex items-center rounded-md bg-sky-50 px-2 py-1 text-xs font-semibold text-sky-700 ring-1 ring-inset ring-sky-500/20 dark:bg-sky-500/10 dark:text-sky-300">
-              +{experience.skills.length - 10} more
-            </span>
-          ) : null}
         </div>
       </div>
     </div>

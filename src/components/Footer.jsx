@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import Logo from "../assets/logo/Logo";
 
 const quickLinks = [
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
   { name: "Tech Stack", href: "#tech-stack" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
 ];
 

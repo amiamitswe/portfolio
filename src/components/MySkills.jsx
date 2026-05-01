@@ -10,6 +10,7 @@ function MySkills() {
     { title: "CSS, Bootstrap & Tailwind", skillLabel: 90, focus: "Responsive styling" },
     { title: "Node & Express", skillLabel: 55, focus: "API foundations" },
     { title: "MongoDB", skillLabel: 45, focus: "Data modeling" },
+    { title: "AI Coding & API Integration", skillLabel: 65, focus: "AI-assisted coding and API implementation" },
   ];
 
   const featuredSkills = ["JavaScript", "React", "Next.js", "Tailwind"];
@@ -21,7 +22,7 @@ function MySkills() {
     >
       <SectionTitle
         title="My Skills"
-        info="A compact view of the tools I use to build clean, responsive front-end products."
+        info="A compact view of the skills I use to build clean, responsive front-end products."
       />
       <div className="section-reveal mx-auto grid w-full gap-6 rounded-lg border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 lg:w-11/12 lg:grid-cols-[0.85fr_1.35fr] lg:p-7">
         <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-5 text-white shadow-sm dark:border-slate-700">

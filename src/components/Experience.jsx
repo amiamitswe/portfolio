@@ -2,77 +2,95 @@ import SectionTitle from "./common/SectionTitle";
 import ExperienceItem from "./common/ExperianceItem";
 
 const experiences = [
-   {
-    role: "Software Engineer",
-    company: { name: "TechCare® Inc.", link: "https://techcare.co/" },
-    skills: ["React.JS","JavaScript","TypeScript","Next.JS","Zoom SDK Integration","Mental Helth Treatment Appointment Booking System","CSS","SCSS","Tailwind-CSS","Shadcn","Ant Design","Figma to html","Cursor AI", "node.js","express.js","mongodb"],
-    jobType: "Full time (Hybrid)",
-    location: "Level:08, House:1005,1007, Avenue:11, Road:09 Dhaka 1216",
-    duration: { start: "April 2025", end: "Continue" },
-  },
   {
     role: "Software Engineer",
-    company: { name: "Technext IT LTD", link: "https://technext.it" },
-    skills: ["React.JS","Next.JS","JavaScript","TypeScript","CSS","Tailwind-CSS","bootstrap","Falcon-react","Material UI","Maintain js","Figma to html", "node.js","express.js","mongodb"],
+    company: { name: "TechCare® Inc.", link: "https://techcare.co/" },
+    skills: ["React.js", "Redux Toolkit", "Redux Saga", "TypeScript", "Tailwind CSS", "Ant Design", "Zoom SDK", "API Integration", "Performance Optimization", "Cursor AI"],
+    highlights: [
+      "Restructured both admin and client-side apps for DiveThru, a mental-health platform.",
+      "Improved application performance by about 40% by reducing redundant API calls and improving component architecture.",
+      "Managed bug fixes, system upgrades, API integration, and feature delivery with client and back-end teams.",
+    ],
+    jobType: "Full time (Hybrid)",
+    location: "Mirpur DOHS, Dhaka",
+    duration: { start: "April 2025", end: "Present" },
+  },
+  {
+    role: "Software Engineer, L2",
+    company: { name: "Technext IT Ltd.", link: "https://technext.it" },
+    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material UI", "HeroUI", "Mantine", "Jotai", "Stripe", "OpenAI API", "DALL-E", "Text-to-Speech", "Claude", "Gemini", "Perplexity AI", "Stable Diffusion", "Node.js", "MongoDB"],
+    highlights: [
+      "Owned front-end delivery on 14+ projects across in-house products and international client engagements.",
+      "Collaborated remotely with US- and Canada-based teams on design-to-code conversion, API integration, code reviews, and deployment.",
+      "Mentored a junior front-end developer through the company's internship program.",
+    ],
+    projects: [
+      {
+        name: "Quintix.ai",
+        meta: "Montreal, Canada · Oct 2023 - Nov 2024",
+        description:
+          "Delivered client work including the Fuelcellsworks public site and admin panel with Next.js, HeroUI, Jotai, Stripe integration, and AI integrations such as OpenAI, DALL-E, text-to-speech, Claude, Gemini, Perplexity AI, Stable Diffusion, and Unsplash.",
+      },
+      {
+        name: "99minds.io",
+        meta: "New York, USA · Nov 2022 - Apr 2023",
+        description:
+          "Built gift-card dashboard, partner dashboard, and gift-card widget features with React, Redux, SCSS, Bootstrap, and Falcon theme. Also migrated the Pinstripes React project from Falcon theme to Tailwind CSS.",
+      },
+      {
+        name: "Xeni",
+        meta: "New York, USA · Nov 2021 - Oct 2022",
+        description:
+          "Built and maintained front-end features for XeniApp using React, TypeScript, Redux, FalconReact, and Bootstrap.",
+      },
+      {
+        name: "In-house and agency products",
+        meta: "USA, India, Portugal, Pakistan, Canada",
+        description:
+          "Worked on Linkedlogi, Zenith, Wise Clone, WeRaise, and Eventgee using React, Next.js, Bootstrap, Material UI, HeroUI, Mantine, Node.js, Express.js, and MongoDB.",
+      },
+    ],
     jobType: "Full time",
-    location:
-      "Shyamoli, Dhaka, Bangladesh-1207",
+    location: "Mirpur Road, Dhaka",
     duration: { start: "November 2021", end: "April 2025" },
   },
   {
-    role: "Front-End Engineer",
-    company: { name: "99minds.io (remote)", link: "https://99minds.io" },
-    skills: ["React.JS","JavaScript","TypeScript","Tailwind-CSS","bootstrap","Figma to html"],
-    jobType: "Part time",
-    location:
-      "New York, NY 10065, United States",
-    duration: { start: "October 2022", end: "April 2023" },
-  },
-  {
-    role: "Front-End Engineer",
-    company: { name: "xeniapp (remote)", link: "https://www.xeni.com/" },
-    skills: ["React.JS","JavaScript","TypeScript","Redux","bootstrap","falcon react","Figma to html"],
-    jobType: "full time",
-    location:
-      "New York, NY 10023, United States",
-    duration: { start: "november 2021", end: "October 2022" },
-  },
-  {
-    role: "Front-End Developer",
-    company: { name: "qcoom.com", link: "https://qcoom.com/" },
-    skills: ["Next.JS","JavaScript","TypeScript","Redux","tailwind-css","Figma to html"],
-    jobType: "full time",
-    location:
-      "Niketon, Dhaka, Bangladesh-1208",
+    role: "Front-end Developer",
+    company: { name: "QCoom.com", link: "https://qcoom.com/" },
+    skills: ["React.js", "Next.js", "JavaScript", "TypeScript", "Redux", "Tailwind CSS"],
+    jobType: "Full time",
+    location: "Dhaka, Bangladesh",
     duration: { start: "July 2021", end: "October 2021" },
   },
   {
-    role: "Front-End Developer",
-    company: { name: "Lotus Technology development", link: "#" },
-    skills: ["React.JS","JavaScript","Redux","bootstrap","Figma to html"],
-    jobType: "full time",
-    location:
-      "Kobi Faruk Sarani, Dhaka 1229",
+    role: "Front-end Developer",
+    company: { name: "Lotus Technology Development", link: "#" },
+    skills: ["React.js", "JavaScript", "Redux", "Bootstrap", "Figma to HTML"],
+    jobType: "Full time",
+    location: "Dhaka, Bangladesh",
     duration: { start: "January 2021", end: "July 2021" },
   },
   {
     role: "Web Developer",
-    company: { name: "Omicron IT LTD", link: "#" },
-    skills: ["html","css","scss","bootstrap","javascript","Figma to html","psd to html","xd to html","responsive design"],
-    jobType: "full time",
-    location:
-      "Mirpur DOHS, Dhaka 1216",
+    company: { name: "Omicron IT Ltd.", link: "#" },
+    skills: ["HTML", "CSS", "SCSS", "Bootstrap", "JavaScript", "PSD to HTML", "XD to HTML", "Responsive Design"],
+    highlights: [
+      "Built and maintained web interfaces for Pruvit using HTML, CSS, and JavaScript.",
+      "Converted PSD, XD, and Figma designs into responsive HTML templates.",
+    ],
+    jobType: "Full time",
+    location: "Mirpur DOHS, Dhaka",
     duration: { start: "March 2019", end: "August 2020" },
   },
 ];
 
 function Experience() {
-  const featuredExperiences = experiences.slice(0, 3);
-  const earlierExperiences = experiences.slice(3);
+  const featuredExperiences = experiences.slice(0, 2);
+  const earlierExperiences = experiences.slice(2);
 
   return (
     <section id="experience" className="mx-auto mt-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:mt-32 lg:px-8">
-      <SectionTitle title="Experience" info="Recent roles in detail, with earlier front-end work kept compact for easier scanning." />
+      <SectionTitle title="Experience" info="6.5+ years across product teams, client delivery, dashboards, web apps, and responsive front-end systems." />
 
       <div className="section-reveal relative mx-auto w-full lg:w-10/12">
         <div className="absolute bottom-6 left-4 top-6 hidden w-px bg-gradient-to-b from-sky-400 via-teal-300 to-rose-400 md:block" />
@@ -88,7 +106,7 @@ function Experience() {
                   Earlier Roles
                 </p>
                 <h3 className="mt-2 text-xl font-bold text-slate-950 dark:text-white">
-                  Front-end foundation across startups and product teams
+                  Front-end foundation across product and client teams
                 </h3>
               </div>
               <span className="text-sm font-medium text-slate-500 dark:text-slate-400">

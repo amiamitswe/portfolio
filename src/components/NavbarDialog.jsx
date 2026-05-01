@@ -10,6 +10,8 @@ function NavbarDialog({
   setMobileMenuOpen,
   navigation,
   socialLinks,
+  activeSection,
+  setActiveSection,
   onContactClick,
 }) {
   const handleContactClick = () => {
@@ -31,7 +33,7 @@ function NavbarDialog({
         >
           <div className="fixed inset-0 bg-gray-900/80 z-10" />
         </Transition.Child>
-        <div className="fixed- inset-0 flex">
+        <div className="fixed inset-0 flex">
           <Transition.Child
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
@@ -73,8 +75,20 @@ function NavbarDialog({
                         <a
                           key={item.name}
                           href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                          onClick={() => {
+                            setActiveSection(item.href.replace("#", ""));
+                            setMobileMenuOpen(false);
+                          }}
+                          aria-current={
+                            activeSection === item.href.replace("#", "")
+                              ? "page"
+                              : undefined
+                          }
+                          className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${
+                            activeSection === item.href.replace("#", "")
+                              ? "bg-sky-50 text-sky-700 dark:bg-sky-400/10 dark:text-sky-300"
+                              : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                          }`}
                         >
                           {item.name}
                         </a>
@@ -92,7 +106,7 @@ function NavbarDialog({
                             target="_blank"
                             rel="noreferrer"
                             aria-label={name}
-                            className="inline-flex rounded-md p-1 transition hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-sky-300"
                           >
                             <Icon />
                           </a>
@@ -127,6 +141,8 @@ NavbarDialog.propTypes = {
       icon: PropTypes.elementType.isRequired,
     })
   ).isRequired,
+  activeSection: PropTypes.string.isRequired,
+  setActiveSection: PropTypes.func.isRequired,
   onContactClick: PropTypes.func.isRequired,
 };
 

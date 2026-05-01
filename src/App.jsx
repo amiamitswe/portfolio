@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ContactModal from "./components/common/ContactModal";
+import CvModal from "./components/common/CvModal";
 import StatsSection from "./components/StatsSection";
 import MyTechStack from "./components/MyTechStack";
 import MyProjects from "./components/MyProjects";
@@ -15,10 +16,9 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [cvOpen, setCvOpen] = useState(false);
 
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  useState(() => {
-    // console.log(localStorage?.theme)
+  useEffect(() => {
     if (
       localStorage?.theme === "dark" ||
       (!("theme" in localStorage) &&
@@ -30,32 +30,27 @@ function App() {
       document.documentElement.classList.remove("dark");
       document.body.classList.add("bg-body-light");
     }
-
-    // // Whenever the user explicitly chooses light mode
-    // localStorage.theme = "light";
-
-    // // Whenever the user explicitly chooses dark mode
-    // localStorage.theme = "dark";
-
-    // // Whenever the user explicitly chooses to respect the OS preference
-    // localStorage.removeItem("theme");
   }, []);
 
   return (
-    <div className="relative isolate min-h-screen overflow-x-hidden">
+    <div className="relative isolate min-h-screen overflow-x-clip">
       <div className="ai-background" aria-hidden="true" />
       <Header onContactClick={() => setContactOpen(true)} />
-      <HeroSection onContactClick={() => setContactOpen(true)} />
+      <HeroSection
+        onContactClick={() => setContactOpen(true)}
+        onCvClick={() => setCvOpen(true)}
+      />
       <StatsSection />
       <MyTechStack />
       <MySkills />
       <AdditionalSkills />
+      <Experience />
       <MyProjects />
       <AboutMe />
-      <Experience />
       <Education />
       <Footer onContactClick={() => setContactOpen(true)} />
       <ContactModal open={contactOpen} setOpen={setContactOpen} />
+      <CvModal open={cvOpen} setOpen={setCvOpen} />
       <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );

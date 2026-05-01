@@ -1,5 +1,6 @@
 import { AtSymbolIcon, CloudArrowDownIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
+import headerProfileImage from "../assets/images/header-profile.png";
 
 function HeroSection({ onContactClick, onCvClick }) {
   return (
@@ -52,7 +53,7 @@ function HeroSection({ onContactClick, onCvClick }) {
               <div className="mx-auto aspect-square max-w-[360px] rounded-full bg-gradient-to-b from-sky-400 via-teal-300 to-rose-400 p-1">
                 <img
                   className="h-full w-full rounded-full border-8 border-white object-cover dark:border-slate-900"
-                  src="https://avatars.githubusercontent.com/u/30245543?v=4"
+                  src={headerProfileImage}
                   alt="Amit Samadder"
                 />
               </div>

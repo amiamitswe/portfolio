@@ -21,7 +21,7 @@ function NavbarDialog({
 
   return (
     <Transition.Root show={mobileMenuOpen} as={Fragment}>
-      <Dialog as="div" className="xl:hidden" onClose={setMobileMenuOpen}>
+      <Dialog as="div" className="relative z-50 xl:hidden" onClose={setMobileMenuOpen}>
         <Transition.Child
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
@@ -31,9 +31,9 @@ function NavbarDialog({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-900/80 z-10" />
+          <div className="fixed inset-0 z-40 bg-gray-900/80" />
         </Transition.Child>
-        <div className="fixed inset-0 flex">
+        <div className="fixed inset-0 z-50 flex justify-end">
           <Transition.Child
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
@@ -43,7 +43,7 @@ function NavbarDialog({
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-body-light dark:bg-body-dark p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <Dialog.Panel className="h-full w-full overflow-y-auto bg-body-light p-6 shadow-2xl dark:bg-body-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a href="#home" className="-m-1.5 p-1.5 text-slate-950 dark:text-white">
                   <span className="sr-only">Amit Samadder</span>
@@ -67,7 +67,7 @@ function NavbarDialog({
                           key={item.name}
                           type="button"
                           onClick={handleContactClick}
-                          className="-mx-3 block w-full rounded-lg px-3 py-2 text-left text-base font-semibold leading-7 text-sky-600 hover:bg-slate-100 dark:text-sky-300 dark:hover:bg-slate-800"
+                          className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-4 py-3 text-base font-semibold leading-7 text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
                         >
                           {item.name}
                         </button>

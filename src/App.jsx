@@ -13,23 +13,26 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
+import { applyTheme, getStoredTheme } from "./utils/theme";
 
 function App() {
   const [contactOpen, setContactOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
 
   useEffect(() => {
-    if (
-      localStorage?.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      document.body.classList.add("bg-body-dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.body.classList.add("bg-body-light");
-    }
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const syncSystemTheme = () => {
+      if (getStoredTheme() === "system") {
+        applyTheme("system");
+      }
+    };
+
+    applyTheme(getStoredTheme());
+    mediaQuery.addEventListener("change", syncSystemTheme);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncSystemTheme);
+    };
   }, []);
 
   return (

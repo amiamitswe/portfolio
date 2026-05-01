@@ -1,123 +1,80 @@
 import { useEffect, useState } from "react";
-import { Switch } from "@headlessui/react";
+import {
+  ComputerDesktopIcon,
+  MoonIcon,
+  SunIcon,
+} from "@heroicons/react/24/outline";
+import {
+  applyTheme,
+  getStoredTheme,
+  persistTheme,
+  themeModes,
+} from "../utils/theme";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+const themeLabels = {
+  system: "System",
+  light: "Light",
+  dark: "Dark",
+};
+
+const themeIcons = {
+  system: ComputerDesktopIcon,
+  light: SunIcon,
+  dark: MoonIcon,
+};
 
 export default function ThemeToggle() {
-  const [enabled, setEnabled] = useState(false);
+  const [mode, setMode] = useState("system");
+  const [resolvedTheme, setResolvedTheme] = useState("light");
 
   useEffect(() => {
-    if (!localStorage?.theme) {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        setEnabled(true);
-      } else {
-        setEnabled(false);
+    const storedMode = getStoredTheme();
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    setMode(storedMode);
+    setResolvedTheme(applyTheme(storedMode));
+
+    const handleSystemThemeChange = () => {
+      if (getStoredTheme() === "system") {
+        setResolvedTheme(applyTheme("system"));
       }
-    } else {
-      if (localStorage?.theme === "dark") {
-        setEnabled(true);
-      }
-      if (localStorage?.theme === "light") {
-        setEnabled(false);
-      }
-    }
+    };
+
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    };
   }, []);
 
-  const themeChangeHandler = (e) => {
-    setEnabled(e);
-    if (e) {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      document.body.classList.remove("bg-body-light");
-      document.body.classList.add("bg-body-dark");
-    } else {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      document.body.classList.remove("bg-body-dark");
-      document.body.classList.add("bg-body-light");
-    }
+  const nextMode = themeModes[(themeModes.indexOf(mode) + 1) % themeModes.length];
+  const Icon = themeIcons[mode];
+  const tooltipLabel = `${themeLabels[mode]} -> ${themeLabels[nextMode]}`;
+
+  const handleThemeChange = () => {
+    persistTheme(nextMode);
+    setMode(nextMode);
+    setResolvedTheme(applyTheme(nextMode));
   };
 
   return (
-    <Switch
-      checked={enabled}
-      onChange={themeChangeHandler}
-      className={classNames(
-        enabled ? "bg-gray1" : "bg-gray1",
-        "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
-      )}
+    <button
+      type="button"
+      onClick={handleThemeChange}
+      aria-label={`${themeLabels[mode]} theme. Switch to ${themeLabels[nextMode]} theme.`}
+      title={tooltipLabel}
+      className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-500 ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800 dark:hover:text-sky-300"
     >
-      <span className="sr-only">Use setting</span>
+      <Icon className="h-5 w-5" aria-hidden="true" />
       <span
-        className={classNames(
-          enabled ? "translate-x-5" : "translate-x-0",
-          "pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
-        )}
+        className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-950 px-2.5 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg shadow-slate-950/20 transition group-hover:opacity-100 group-focus-visible:opacity-100 dark:bg-white dark:text-slate-950"
+        aria-hidden="true"
       >
-        <span
-          className={classNames(
-            enabled
-              ? "opacity-0 duration-100 ease-out"
-              : "opacity-100 duration-200 ease-in",
-            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-          )}
-          aria-hidden="true"
-        >
-          {/* <svg
-            className="h-3 w-3 text-gray-400"
-            fill="none"
-            viewBox="0 0 12 12"
-          >
-            <path
-              d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg> */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-            />
-          </svg>
-        </span>
-        <span
-          className={classNames(
-            enabled
-              ? "opacity-100 duration-200 ease-in"
-              : "opacity-0 duration-100 ease-out",
-            "absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-          )}
-          aria-hidden="true"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-            />
-          </svg>
-        </span>
+        {tooltipLabel}
       </span>
-    </Switch>
+      <span className="sr-only">
+        Current theme mode is {mode}. Resolved theme is {resolvedTheme}.
+      </span>
+    </button>
   );
 }

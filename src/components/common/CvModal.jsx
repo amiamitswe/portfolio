@@ -26,7 +26,7 @@ function CvModal({ open, setOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" />
+          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-xs transition-opacity" />
         </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -54,7 +54,7 @@ function CvModal({ open, setOpen }) {
                     <a
                       href={cvDownloadUrl}
                       download="Amit_Samadder_Resume.pdf"
-                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
                     >
                       Download PDF
                       <ArrowDownTrayIcon className="h-4 w-4" aria-hidden="true" />
@@ -62,7 +62,7 @@ function CvModal({ open, setOpen }) {
                     <button
                       type="button"
                       onClick={() => setOpen(false)}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-700 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-700 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
                     >
                       <span className="sr-only">Close CV preview</span>
                       <XMarkIcon className="h-5 w-5" aria-hidden="true" />

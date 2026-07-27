@@ -92,7 +92,7 @@ export default function Header({ onContactClick }) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/85 shadow-sm backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/85">
+    <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/85 shadow-xs backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/85">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8"
         aria-label="Global"
@@ -119,7 +119,7 @@ export default function Header({ onContactClick }) {
                 type="button"
                 id="contact"
                 onClick={onContactClick}
-                className="rounded-full bg-slate-950 px-4 py-2 font-dm-sans text-sm font-semibold leading-6 text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+                className="rounded-full bg-slate-950 px-4 py-2 font-dm-sans text-sm font-semibold leading-6 text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
               >
                 {item.name}
               </button>

@@ -6,7 +6,7 @@ function SectionTitle({ title, info }) {
       <h2 className="mb-4 text-3xl font-bold text-slate-950 dark:text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <p className="mx-auto max-w-4xl text-base leading-7 text-slate-600 [text-wrap:balance] dark:text-slate-300 sm:text-lg">
+      <p className="mx-auto max-w-4xl text-base leading-7 text-slate-600 text-balance dark:text-slate-300 sm:text-lg">
         {info}
       </p>
     </div>

@@ -64,7 +64,7 @@ function NavbarDialog({
                 </button>
               </div>
               <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-500/100">
+                <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-500">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) =>
                       item.isAction ? (
@@ -72,7 +72,7 @@ function NavbarDialog({
                           key={item.name}
                           type="button"
                           onClick={handleContactClick}
-                          className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-4 py-3 text-base font-semibold leading-7 text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+                          className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-4 py-3 text-base font-semibold leading-7 text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
                         >
                           {item.name}
                         </button>

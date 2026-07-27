@@ -8,7 +8,7 @@ function ExperienceItem({ experience }) {
   return (
     <div className="relative mb-5 pl-0 last:mb-0 md:pl-10">
       <span className="absolute left-[9px] top-8 hidden h-4 w-4 rounded-full border-4 border-white bg-sky-500 shadow-lg shadow-sky-500/30 dark:border-slate-950 md:block" />
-      <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 text-slate-700 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-300 sm:p-6">
+      <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 text-slate-700 shadow-xs backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/70 dark:text-slate-300 sm:p-6">
         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600 dark:text-sky-300">

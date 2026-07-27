@@ -17,7 +17,7 @@ const socialLinks = [
 function Footer({ onContactClick }) {
   return (
     <footer className="mx-auto max-w-7xl px-5 pb-10 sm:px-6 lg:px-8">
-      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white/80 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white/80 shadow-xs backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/70">
         <div className="grid gap-10 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
             <Logo />

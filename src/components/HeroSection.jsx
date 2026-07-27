@@ -15,7 +15,7 @@ function HeroSection({ onContactClick, onCvClick }) {
           </p>
           <h1 className="max-w-4xl text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl xl:text-7xl">
             I build polished, responsive web products with{" "}
-            <span className="bg-gradient-to-r from-sky-500 via-teal-400 to-rose-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-sky-500 via-teal-400 to-rose-500 bg-clip-text text-transparent">
               React
             </span>
             .
@@ -28,7 +28,7 @@ function HeroSection({ onContactClick, onCvClick }) {
             <button
               type="button"
               onClick={onContactClick}
-              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
             >
               Get in Touch
               <AtSymbolIcon className="-mr-0.5 h-5 w-5" aria-hidden="true" />
@@ -36,7 +36,7 @@ function HeroSection({ onContactClick, onCvClick }) {
             <button
               type="button"
               onClick={onCvClick}
-              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800"
+              className="inline-flex items-center justify-center gap-x-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800"
             >
               View CV
               <CloudArrowDownIcon
@@ -50,7 +50,7 @@ function HeroSection({ onContactClick, onCvClick }) {
           <div className="absolute inset-x-8 bottom-0 top-10 rounded-lg border border-slate-200 bg-white/70 shadow-2xl shadow-slate-950/10 dark:border-slate-800 dark:bg-slate-900/70" />
           <div className="relative rounded-lg border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-slate-900">
             <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800">
-              <div className="mx-auto aspect-square max-w-[360px] rounded-full bg-gradient-to-b from-sky-400 via-teal-300 to-rose-400 p-1">
+              <div className="mx-auto aspect-square max-w-[360px] rounded-full bg-linear-to-b from-sky-400 via-teal-300 to-rose-400 p-1">
                 <img
                   className="h-full w-full rounded-full border-8 border-white object-cover dark:border-slate-900"
                   src={headerProfileImage}

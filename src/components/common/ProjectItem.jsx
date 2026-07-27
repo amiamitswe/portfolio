@@ -4,7 +4,7 @@ import {
 } from "@heroicons/react/24/outline";
 import PropTypes from "prop-types";
 
-function ProjectItem({ item, index }) {
+function ProjectItem({ item, index = 0 }) {
   return (
     <article className="card-lift group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/90 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-br from-sky-500/10 via-teal-400/10 to-rose-400/10 opacity-80" />
@@ -79,10 +79,6 @@ function ProjectItem({ item, index }) {
 ProjectItem.propTypes = {
   item: PropTypes.object.isRequired,
   index: PropTypes.number,
-};
-
-ProjectItem.defaultProps = {
-  index: 0,
 };
 
 export default ProjectItem;

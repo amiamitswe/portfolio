@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Skill({ title, skill, focus, index }) {
+function Skill({ title, skill, focus = "", index = 0 }) {
   let skillStatus;
   if (skill < 50) {
     skillStatus = "New";
@@ -63,11 +63,6 @@ Skill.propTypes = {
   skill: PropTypes.number.isRequired,
   focus: PropTypes.string,
   index: PropTypes.number,
-};
-
-Skill.defaultProps = {
-  focus: "",
-  index: 0,
 };
 
 export default Skill;

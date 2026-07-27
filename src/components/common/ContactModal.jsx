@@ -1,5 +1,11 @@
 import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import PropTypes from "prop-types";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
@@ -37,14 +43,14 @@ export default function ContactModal({ open, setOpen }) {
   };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-40"
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -54,11 +60,11 @@ export default function ContactModal({ open, setOpen }) {
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -67,14 +73,14 @@ export default function ContactModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
+              <DialogPanel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
                 <div className="mb-6">
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
                     Contact
                   </p>
-                  <Dialog.Title className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
+                  <DialogTitle className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
                     Tell me about your project
-                  </Dialog.Title>
+                  </DialogTitle>
                   <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     Share a few details and I will get back to you with a clear next step.
                   </p>
@@ -178,12 +184,12 @@ export default function ContactModal({ open, setOpen }) {
                     </button>
                   </div>
                 </form>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
 

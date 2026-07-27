@@ -1,7 +1,7 @@
 import CheckIcon from "./CheckIcon";
 import PropTypes from "prop-types";
 
-function OtherSkill({ skill, index }) {
+function OtherSkill({ skill, index = 0 }) {
   return (
     <div className="group relative overflow-hidden rounded-lg border border-slate-200 bg-white/80 p-4 text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-500/10 dark:border-slate-800 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-sky-500/50">
       <div className="absolute -right-8 -top-10 h-20 w-20 rounded-full bg-sky-400/10 blur-2xl transition duration-300 group-hover:bg-teal-300/20" />
@@ -27,10 +27,6 @@ OtherSkill.propTypes = {
     title: PropTypes.string.isRequired,
   }).isRequired,
   index: PropTypes.number,
-};
-
-OtherSkill.defaultProps = {
-  index: 0,
 };
 
 export default OtherSkill;

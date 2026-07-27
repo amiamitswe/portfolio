@@ -1,5 +1,11 @@
 import { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { ArrowDownTrayIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import PropTypes from "prop-types";
 
@@ -9,9 +15,9 @@ const cvDownloadUrl = `https://drive.google.com/uc?export=download&id=${cvFileId
 
 function CvModal({ open, setOpen }) {
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition show={open} as={Fragment}>
       <Dialog as="div" className="relative z-40" onClose={setOpen}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -21,11 +27,11 @@ function CvModal({ open, setOpen }) {
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -34,15 +40,15 @@ function CvModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative flex h-[88vh] w-full max-w-5xl transform flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950">
+              <DialogPanel className="relative flex h-[88vh] w-full max-w-5xl transform flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950">
                 <div className="flex flex-col gap-3 border-b border-slate-200 p-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
                       CV Preview
                     </p>
-                    <Dialog.Title className="mt-1 text-xl font-bold text-slate-950 dark:text-white">
+                    <DialogTitle className="mt-1 text-xl font-bold text-slate-950 dark:text-white">
                       Amit Samadder Resume
-                    </Dialog.Title>
+                    </DialogTitle>
                   </div>
                   <div className="flex items-center gap-2">
                     <a
@@ -71,12 +77,12 @@ function CvModal({ open, setOpen }) {
                     className="h-full w-full rounded-lg border border-slate-200 bg-white dark:border-slate-800"
                   />
                 </div>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
 

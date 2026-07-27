@@ -3,21 +3,23 @@ import {
   RocketLaunchIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/outline";
+import { yearsOfExperienceLabel } from "../data/experiences";
+import { projectsDeliveredLabel, toolsInStackLabel } from "../data/profile";
 
 const stats = [
   {
     label: "Years building web products",
-    value: "6.5+",
+    value: yearsOfExperienceLabel,
     icon: RocketLaunchIcon,
   },
   {
     label: "Tools in active toolkit",
-    value: "18",
+    value: toolsInStackLabel,
     icon: Squares2X2Icon,
   },
   {
     label: "Projects delivered",
-    value: "14+",
+    value: projectsDeliveredLabel,
     icon: CodeBracketSquareIcon,
   },
 ];

@@ -123,6 +123,15 @@ layer(base);
   }
 }
 
+@utility profile-zoom {
+  animation: profile-zoom 10s ease-in-out infinite alternate;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
 @utility skill-bar-fill {
   animation: skill-fill 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--skill-delay, 0ms);
@@ -204,6 +213,16 @@ layer(base);
     to {
       transform: translateX(-48%) rotate(22deg) scale(1.08);
       opacity: 0.62;
+    }
+  }
+
+  @keyframes profile-zoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.12);
     }
   }
 

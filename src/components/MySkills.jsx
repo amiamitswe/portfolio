@@ -13,7 +13,7 @@ function MySkills() {
     { title: "AI Coding & API Integration", skillLabel: 65, focus: "AI-assisted coding and API implementation" },
   ];
 
-  const featuredSkills = ["JavaScript", "React", "Next.js", "Tailwind"];
+  const featuredSkills = ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind", "shadcn/ui"];
 
   return (
     <section

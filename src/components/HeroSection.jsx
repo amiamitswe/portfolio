@@ -1,6 +1,10 @@
 import { AtSymbolIcon, CloudArrowDownIcon } from "@heroicons/react/20/solid";
 import PropTypes from "prop-types";
 import headerProfileImage from "../assets/images/header-profile.png";
+import TypedText from "./common/TypedText";
+
+// Module scope keeps the array reference stable across renders.
+const heroWords = ["React", "Next.js", "TypeScript", "Tailwind CSS"];
 
 function HeroSection({ onContactClick, onCvClick }) {
   return (
@@ -15,10 +19,10 @@ function HeroSection({ onContactClick, onCvClick }) {
           </p>
           <h1 className="max-w-4xl text-4xl font-bold leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl xl:text-7xl">
             I build polished, responsive web products with{" "}
-            <span className="bg-linear-to-r from-sky-500 via-teal-400 to-rose-500 bg-clip-text text-transparent">
-              React
-            </span>
-            .
+            <TypedText
+              words={heroWords}
+              className="bg-linear-to-r from-sky-500 via-teal-400 to-rose-500 bg-clip-text text-transparent"
+            />
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
             I am Amit Samadder, a front-end developer focused on clean UI,
@@ -51,11 +55,13 @@ function HeroSection({ onContactClick, onCvClick }) {
           <div className="relative rounded-lg border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-slate-900">
             <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800">
               <div className="mx-auto aspect-square max-w-[360px] rounded-full bg-linear-to-b from-sky-400 via-teal-300 to-rose-400 p-1">
-                <img
-                  className="h-full w-full rounded-full border-8 border-white object-cover dark:border-slate-900"
-                  src={headerProfileImage}
-                  alt="Amit Samadder"
-                />
+                <div className="h-full w-full overflow-hidden rounded-full border-8 border-white dark:border-slate-900">
+                  <img
+                    className="profile-zoom h-full w-full object-cover"
+                    src={headerProfileImage}
+                    alt="Amit Samadder"
+                  />
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-3 pt-4 text-center">

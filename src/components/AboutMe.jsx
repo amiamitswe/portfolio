@@ -1,4 +1,6 @@
 import SectionTitle from "./common/SectionTitle";
+import { yearsOfExperienceLabel } from "../data/experiences";
+import { projectsDeliveredLabel, toolsInStackLabel } from "../data/profile";
 
 function AboutMe() {
   const aboutMe = [
@@ -8,9 +10,9 @@ function AboutMe() {
   ];
 
   const highlights = [
-    { value: "6.5+", label: "Years building web UI" },
-    { value: "18", label: "Tools in active stack" },
-    { value: "14+", label: "Projects delivered" },
+    { value: yearsOfExperienceLabel, label: "Years building web UI" },
+    { value: toolsInStackLabel, label: "Tools in active stack" },
+    { value: projectsDeliveredLabel, label: "Projects delivered" },
   ];
 
   return (

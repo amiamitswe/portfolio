@@ -19,7 +19,7 @@ export default function ContactModal({ open, setOpen }) {
     setLoading(true);
 
     emailjs
-      .sendForm(service, template, form.current, publicKey)
+      .sendForm(service, template, form.current, { publicKey })
       .then(
         (result) => {
           toast.success("Email sent successfully");

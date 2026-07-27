@@ -28,7 +28,7 @@ function StatsSection() {
       {stats.map(({ label, value, icon: Icon }) => (
         <div
           key={label}
-          className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70"
+          className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900/70"
         >
           <div className="mb-5 inline-flex rounded-lg bg-sky-50 p-3 text-sky-600 dark:bg-sky-400/10 dark:text-sky-300">
             <Icon className="h-6 w-6" aria-hidden="true" />

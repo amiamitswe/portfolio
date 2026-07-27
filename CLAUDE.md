@@ -8,10 +8,10 @@ This is Amit Samadder's personal portfolio site. It is a React single-page appli
 
 ## Tech Stack
 
-- React 18
-- Vite 5
-- Tailwind CSS
-- Headless UI
+- React 19
+- Vite 8
+- Tailwind CSS 4 (CSS-first config, no `tailwind.config.js`)
+- Headless UI 2
 - Heroicons
 - EmailJS
 - React Hot Toast
@@ -53,7 +53,8 @@ npm run lint
 
 - `src/App.jsx`: Main app composition and global modal state
 - `src/main.jsx`: React app entry point
-- `src/index.css`: Tailwind imports, global styles, background effects, and animations
+- `src/index.css`: Tailwind import, `@theme` design tokens, the `dark` variant, v3 Preflight compatibility rules, custom `@utility` classes, global styles, background effects, and animations
+- `eslint.config.js`: ESLint flat config (replaces the old `.eslintrc.cjs`)
 - `src/components/Header.jsx`: Desktop navigation, social links, theme toggle, and mobile menu trigger
 - `src/components/NavbarDialog.jsx`: Mobile navigation dialog
 - `src/components/HeroSection.jsx`: Main hero content, profile image, CTA buttons, and CV preview trigger
@@ -72,6 +73,8 @@ npm run lint
 
 - Keep components small and consistent with the existing file structure.
 - Prefer Tailwind utility classes over new custom CSS unless the style is global, animated, or reused.
+- Tailwind 4 is configured in CSS, not JavaScript. Add design tokens as `@theme` variables and reusable classes as `@utility` blocks in `src/index.css`.
+- Do not remove the Preflight compatibility block in `src/index.css`. It restores v3 defaults (border colour, button cursor, placeholder colour) that Tailwind 4 changed.
 - Follow the current visual system: clean cards, subtle borders, responsive spacing, and light/dark mode support.
 - Preserve accessibility basics such as `aria-label`, `sr-only`, proper button types, and keyboard-friendly interactions.
 - Use the existing custom icon components in `src/assets/icons/` when adding technology or social links.

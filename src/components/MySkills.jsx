@@ -24,8 +24,8 @@ function MySkills() {
         title="My Skills"
         info="A compact view of the skills I use to build clean, responsive front-end products."
       />
-      <div className="section-reveal mx-auto grid w-full gap-6 rounded-lg border border-slate-200 bg-white/85 p-5 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/70 lg:w-11/12 lg:grid-cols-[0.85fr_1.35fr] lg:p-7">
-        <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-5 text-white shadow-sm dark:border-slate-700">
+      <div className="section-reveal mx-auto grid w-full gap-6 rounded-lg border border-slate-200 bg-white/85 p-5 shadow-xs backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/70 lg:w-11/12 lg:grid-cols-[0.85fr_1.35fr] lg:p-7">
+        <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-5 text-white shadow-xs dark:border-slate-700">
           <div className="absolute -right-12 -top-14 h-36 w-36 rounded-full bg-sky-400/20 blur-3xl" />
           <div className="absolute -bottom-16 left-6 h-32 w-32 rounded-full bg-teal-300/20 blur-3xl" />
           <p className="relative text-sm font-semibold uppercase tracking-[0.2em] text-sky-200">

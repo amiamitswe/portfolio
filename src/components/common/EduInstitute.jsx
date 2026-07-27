@@ -12,7 +12,7 @@ function EduInstitute({ edu }) {
   if (edu.stage === "B.Sc.") LogoIcon = AcademicCapIcon;
 
   return (
-    <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/70">
+    <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900/70">
       <LogoIcon className="mx-auto mb-5 h-14 w-14 text-sky-600 dark:text-sky-300" />
 
       <div className="text-center text-slate-600 dark:text-slate-300">

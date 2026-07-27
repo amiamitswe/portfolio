@@ -4,10 +4,10 @@ import {
 } from "@heroicons/react/24/outline";
 import PropTypes from "prop-types";
 
-function ProjectItem({ item, index }) {
+function ProjectItem({ item, index = 0 }) {
   return (
-    <article className="card-lift group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/90 shadow-sm backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-br from-sky-500/10 via-teal-400/10 to-rose-400/10 opacity-80" />
+    <article className="card-lift group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/90 shadow-xs backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
+      <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-br from-sky-500/10 via-teal-400/10 to-rose-400/10 opacity-80" />
       <div className="relative p-3 sm:p-4">
         <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-950/25 dark:border-slate-800 dark:bg-slate-900">
           <a
@@ -24,9 +24,9 @@ function ProjectItem({ item, index }) {
             alt={item.title}
             className="h-40 w-full object-cover object-top brightness-75 saturate-75 transition duration-700 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100 sm:h-44"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-slate-950/10 shadow-inner shadow-slate-950/70 transition duration-500 group-hover:from-slate-950/20 group-hover:via-transparent group-hover:to-transparent group-hover:shadow-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-950/30 to-slate-950/10 shadow-inner shadow-slate-950/70 transition duration-500 group-hover:from-slate-950/20 group-hover:via-transparent group-hover:to-transparent group-hover:shadow-none" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-950 shadow-sm backdrop-blur dark:bg-slate-950/80 dark:text-white">
+            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-950 shadow-xs backdrop-blur-sm dark:bg-slate-950/80 dark:text-white">
               {item.category}
             </span>
           </div>
@@ -39,7 +39,7 @@ function ProjectItem({ item, index }) {
                 {item.title}
               </h3>
             </div>
-            <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold backdrop-blur">
+            <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold backdrop-blur-sm">
               {item.year}
             </span>
           </div>
@@ -79,10 +79,6 @@ function ProjectItem({ item, index }) {
 ProjectItem.propTypes = {
   item: PropTypes.object.isRequired,
   index: PropTypes.number,
-};
-
-ProjectItem.defaultProps = {
-  index: 0,
 };
 
 export default ProjectItem;

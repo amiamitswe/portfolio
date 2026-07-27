@@ -31,6 +31,11 @@ export default function ThemeToggle() {
     const storedMode = getStoredTheme();
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+    // Hydrate the toggle from localStorage on mount. This stays in an effect
+    // on purpose: applyTheme() writes classes onto document.documentElement
+    // and document.body, so it cannot move into a useState initializer
+    // without making render impure and double-firing under StrictMode.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMode(storedMode);
     setResolvedTheme(applyTheme(storedMode));
 

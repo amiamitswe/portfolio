@@ -1,6 +1,11 @@
 import { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "../assets/logo/Logo";
@@ -20,9 +25,9 @@ function NavbarDialog({
   };
 
   return (
-    <Transition.Root show={mobileMenuOpen} as={Fragment}>
+    <Transition show={mobileMenuOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50 xl:hidden" onClose={setMobileMenuOpen}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="transition-opacity ease-linear duration-300"
           enterFrom="opacity-0"
@@ -32,9 +37,9 @@ function NavbarDialog({
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 z-40 bg-gray-900/80" />
-        </Transition.Child>
+        </TransitionChild>
         <div className="fixed inset-0 z-50 flex justify-end">
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="translate-x-full"
@@ -43,7 +48,7 @@ function NavbarDialog({
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="h-full w-full overflow-y-auto bg-body-light p-6 shadow-2xl dark:bg-body-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <DialogPanel className="h-full w-full overflow-y-auto bg-body-light p-6 shadow-2xl dark:bg-body-dark sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a href="#home" className="-m-1.5 p-1.5 text-slate-950 dark:text-white">
                   <span className="sr-only">Amit Samadder</span>
@@ -59,7 +64,7 @@ function NavbarDialog({
                 </button>
               </div>
               <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-500/100">
+                <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-500">
                   <div className="space-y-2 py-6">
                     {navigation.map((item) =>
                       item.isAction ? (
@@ -67,7 +72,7 @@ function NavbarDialog({
                           key={item.name}
                           type="button"
                           onClick={handleContactClick}
-                          className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-4 py-3 text-base font-semibold leading-7 text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+                          className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-slate-950 px-4 py-3 text-base font-semibold leading-7 text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
                         >
                           {item.name}
                         </button>
@@ -116,11 +121,11 @@ function NavbarDialog({
                   </div>
                 </div>
               </div>
-            </Dialog.Panel>
-          </Transition.Child>
+            </DialogPanel>
+          </TransitionChild>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
 

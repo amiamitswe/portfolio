@@ -1,5 +1,11 @@
 import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import PropTypes from "prop-types";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
@@ -19,7 +25,7 @@ export default function ContactModal({ open, setOpen }) {
     setLoading(true);
 
     emailjs
-      .sendForm(service, template, form.current, publicKey)
+      .sendForm(service, template, form.current, { publicKey })
       .then(
         (result) => {
           toast.success("Email sent successfully");
@@ -37,14 +43,14 @@ export default function ContactModal({ open, setOpen }) {
   };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-40"
         initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -53,12 +59,12 @@ export default function ContactModal({ open, setOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-sm transition-opacity" />
-        </Transition.Child>
+          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-xs transition-opacity" />
+        </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -67,14 +73,14 @@ export default function ContactModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
+              <DialogPanel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
                 <div className="mb-6">
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
                     Contact
                   </p>
-                  <Dialog.Title className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
+                  <DialogTitle className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
                     Tell me about your project
-                  </Dialog.Title>
+                  </DialogTitle>
                   <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     Share a few details and I will get back to you with a clear next step.
                   </p>
@@ -93,7 +99,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="text"
                         name="user_name"
                         id="name"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         placeholder="Your name"
                       />
                     </div>
@@ -111,7 +117,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="email"
                         name="user_email"
                         id="email"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         placeholder="you@example.com"
                       />
                     </div>
@@ -131,7 +137,7 @@ export default function ContactModal({ open, setOpen }) {
                         name="message"
                         id="message"
                         placeholder="Tell me a little about the project"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
                         defaultValue={""}
                       />
                     </div>
@@ -140,7 +146,7 @@ export default function ContactModal({ open, setOpen }) {
                     <button
                       type="submit"
                       disabled={loading}
-                      className={`inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200 sm:col-start-2 ${
+                      className={`inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200 sm:col-start-2 ${
                         loading ? "cursor-not-allowed" : "cursor-pointer"
                       }`}
                     >
@@ -170,7 +176,7 @@ export default function ContactModal({ open, setOpen }) {
                     </button>
                     <button
                       type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800 sm:col-start-1 sm:mt-0"
+                      className="mt-3 inline-flex w-full justify-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800 sm:col-start-1 sm:mt-0"
                       onClick={() => setOpen(false)}
                       ref={cancelButtonRef}
                     >
@@ -178,12 +184,12 @@ export default function ContactModal({ open, setOpen }) {
                     </button>
                   </div>
                 </form>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
 

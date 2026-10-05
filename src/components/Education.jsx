@@ -26,17 +26,17 @@ const educationTrack = [
     location:"Location: Dhanmondi 32, Dhaka",
     link: "https://daffodilvarsity.edu.bd/",
     group: "Department: Software Engineering",
-    passingYear: "Passing Year: 2018",
+    passingYear: "Duration: 2014 - 2018",
     board: "Dhaka",
   },
 ];
 
 function Education() {
   return (
-    <section id="education" className="mx-auto my-24 max-w-7xl scroll-mt-24 px-5 sm:px-6 lg:my-32 lg:px-8">
-      <SectionTitle title="Education" info="Academic foundation behind my software engineering work." />
+    <section id="education" className="mx-auto max-w-300 scroll-mt-24 px-5 pt-16 sm:px-8 lg:pt-35 xl:px-0">
+      <SectionTitle index="06" eyebrow="Education" title="Education" info="Academic foundation behind my software engineering work." />
 
-      <div className="section-reveal mx-auto grid w-full grid-cols-1 gap-5 md:grid-cols-3 lg:w-11/12">
+      <div className="section-reveal grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-6">
         {educationTrack?.map((edu) => (
           <EduInstitute key={edu.stage} edu={edu} />
         ))}

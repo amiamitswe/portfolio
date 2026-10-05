@@ -30,7 +30,7 @@ function ExperienceModal({ open, setOpen, experience }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-xs transition-opacity" />
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity" />
         </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -44,16 +44,16 @@ function ExperienceModal({ open, setOpen, experience }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <DialogPanel className="relative flex max-h-[88vh] w-full max-w-2xl transform flex-col overflow-hidden rounded-lg border border-slate-200 bg-white text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950">
-                <div className="flex items-start justify-between gap-3 border-b border-slate-200 p-5 dark:border-slate-800 sm:p-6">
+              <DialogPanel className="relative flex max-h-[88vh] w-full max-w-2xl transform flex-col overflow-hidden rounded-lg border border-line bg-surface text-left shadow-2xl shadow-black/30 transition-all">
+                <div className="flex items-start justify-between gap-3 border-b border-line p-5 sm:p-6">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-600 dark:text-sky-300">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-ink">
                       {experience?.role}
                     </p>
-                    <DialogTitle className="mt-2 text-xl font-bold capitalize text-slate-950 dark:text-white sm:text-2xl">
+                    <DialogTitle className="mt-2 text-xl font-bold capitalize text-fg sm:text-2xl">
                       {hasCompanyLink ? (
                         <a
-                          className="hover:text-sky-600 dark:hover:text-sky-300"
+                          className="hover:text-accent-ink"
                           target="_blank"
                           rel="noreferrer"
                           href={experience?.company?.link}
@@ -68,15 +68,15 @@ function ExperienceModal({ open, setOpen, experience }) {
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white text-slate-700 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+                    className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-surface text-fg ring-1 ring-inset ring-line-strong transition hover:bg-surface-2"
                   >
                     <span className="sr-only">Close experience details</span>
                     <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 </div>
 
-                <div className="min-h-0 flex-1 overflow-y-auto p-5 text-slate-700 dark:text-slate-300 sm:p-6">
-                  <div className="grid gap-3 text-sm text-slate-500 dark:text-slate-400 lg:grid-cols-[1fr_auto] lg:items-center">
+                <div className="min-h-0 flex-1 overflow-y-auto p-5 text-fg-muted sm:p-6">
+                  <div className="grid gap-3 text-sm text-fg-subtle lg:grid-cols-[1fr_auto] lg:items-center">
                     <p className="flex items-start gap-x-2">
                       <MapPinIcon className="mt-0.5 h-5 flex-none" /> {experience?.location}
                     </p>
@@ -84,16 +84,16 @@ function ExperienceModal({ open, setOpen, experience }) {
                       <CalendarIcon className="h-5 flex-none" /> {experience?.duration?.start} - {experience?.duration?.end}
                     </p>
                   </div>
-                  <p className="mt-3 inline-flex items-center gap-x-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+                  <p className="mt-3 inline-flex items-center gap-x-2 text-sm font-medium text-fg-muted">
                     <WindowIcon className="h-5" />
                     {experience?.jobType}
                   </p>
 
                   {experience?.highlights?.length ? (
-                    <ul className="mt-4 grid gap-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    <ul className="mt-4 grid gap-2 text-sm leading-6 text-fg-muted">
                       {experience.highlights.map((highlight) => (
                         <li key={highlight} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-sky-500" />
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -105,17 +105,17 @@ function ExperienceModal({ open, setOpen, experience }) {
                       {experience.projects.map((project) => (
                         <div
                           key={project.name}
-                          className="rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/80"
+                          className="rounded-lg border border-line bg-surface-2 p-4"
                         >
                           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                            <p className="text-sm font-bold text-slate-950 dark:text-white">
+                            <p className="text-sm font-bold text-fg">
                               {project.name}
                             </p>
-                            <span className="text-xs font-semibold text-sky-600 dark:text-sky-300">
+                            <span className="text-xs font-semibold text-accent-ink">
                               {project.meta}
                             </span>
                           </div>
-                          <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                          <p className="mt-2 text-sm leading-6 text-fg-muted">
                             {project.description}
                           </p>
                         </div>
@@ -127,7 +127,7 @@ function ExperienceModal({ open, setOpen, experience }) {
                     {experience?.skills?.map((skill) => (
                       <span
                         key={skill}
-                        className="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium capitalize text-slate-600 ring-1 ring-inset ring-slate-500/10 dark:bg-slate-900 dark:text-slate-300 dark:ring-slate-400/20"
+                        className="inline-flex items-center rounded-md bg-chip px-2 py-1 text-xs font-medium capitalize text-fg-muted"
                       >
                         {skill}
                       </span>

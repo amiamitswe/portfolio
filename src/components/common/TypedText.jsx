@@ -77,7 +77,7 @@ function TypedText({ words, className }) {
       <span aria-hidden="true" className="absolute left-0 top-0 whitespace-nowrap">
         <span className={className}>{reduceMotion ? words[0] : text}</span>
         {reduceMotion ? null : (
-          <span className="ml-1 inline-block h-[0.85em] w-[3px] animate-pulse rounded-xs bg-sky-500 align-middle dark:bg-sky-300" />
+          <span className="ml-1 inline-block h-[0.85em] w-[3px] animate-pulse rounded-xs bg-accent align-middle" />
         )}
       </span>
     </span>

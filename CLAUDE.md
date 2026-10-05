@@ -53,19 +53,23 @@ npm run lint
 
 - `src/App.jsx`: Main app composition and global modal state
 - `src/main.jsx`: React app entry point
-- `src/index.css`: Tailwind import, `@theme` design tokens, the `dark` variant, v3 Preflight compatibility rules, custom `@utility` classes, global styles, background effects, and animations
+- `src/index.css`: Google Fonts, Tailwind import, colour tokens (CSS variables on `:root` for light and `.dark` for dark, exposed via `@theme inline`), font tokens, the `dark` variant, v3 Preflight compatibility rules, custom `@utility` classes, and global styles
 - `eslint.config.js`: ESLint flat config (replaces the old `.eslintrc.cjs`)
-- `src/components/Header.jsx`: Desktop navigation, social links, theme toggle, and mobile menu trigger
+- `src/data/profile.js`: Email, social links, navigation, and shared stat labels
+- `src/data/experiences.js`: Work history (kept in sync with the résumé) and the derived years-of-experience label
+- `src/data/techStack.js`: Tech stack strip entries (icon, name, link)
+- `src/components/Header.jsx`: Desktop navigation, theme toggle, Resume button, and mobile menu trigger
 - `src/components/NavbarDialog.jsx`: Mobile navigation dialog
-- `src/components/HeroSection.jsx`: Main hero content, profile image, CTA buttons, and CV preview trigger
-- `src/components/MyTechStack.jsx`: Technology icon grid
-- `src/components/MySkills.jsx`: Primary skills section
-- `src/components/AdditionalSkills.jsx`: Supporting skill list
-- `src/components/Experience.jsx`: Work experience timeline data
-- `src/components/MyProjects.jsx`: Featured projects data and rendering
-- `src/components/AboutMe.jsx`: Personal and professional summary
-- `src/components/Education.jsx`: Education section
-- `src/components/Footer.jsx`: Footer CTA, quick links, and social links
+- `src/components/HeroSection.jsx`: Hero copy, typed words, CTAs, social links, and the `profile.ts` code card
+- `src/components/MyTechStack.jsx`: Tech stack strip under the hero
+- `src/components/CaseStudies.jsx`: Featured 99minds case study (with an illustrative dashboard preview) and metric cards
+- `src/components/MyProjects.jsx`: Project cards with screenshots and live links
+- `src/components/Experience.jsx`: Experience list with a details modal per role
+- `src/components/MySkills.jsx`: Core stack, additional skills, and proficiency tiers
+- `src/components/AboutMe.jsx`: About text, photo, and highlight numbers
+- `src/components/Education.jsx`: Education cards
+- `src/components/ContactSection.jsx`: Contact card (email with copy, contact modal, CV)
+- `src/components/Footer.jsx`: Footer line and social links
 - `src/components/common/ContactModal.jsx`: EmailJS contact form
 - `src/components/common/CvModal.jsx`: Google Drive PDF preview and download modal
 
@@ -85,19 +89,21 @@ npm run lint
 
 - Support both light and dark mode for new UI.
 - Use responsive classes for mobile, tablet, and desktop layouts.
-- Match the existing rounded-lg card style and subtle shadow/border treatment.
+- Match the existing card style: `bg-surface`, `border-line`, large radii (18-24px), no heavy shadows.
 - Keep section spacing consistent with nearby sections.
-- Avoid adding new color palettes unless they fit the current sky, teal, rose, slate, and white theme.
+- Use the colour tokens (`bg-canvas`, `bg-surface`, `border-line`, `text-fg`, `text-fg-muted`, `bg-accent`, `text-accent-ink`, ...) instead of raw Tailwind palette colours, so light and dark both work without `dark:` variants.
+- Typography: `font-display` (Bricolage Grotesque) for headings, Geist for body, `font-mono` (Geist Mono) for labels and metadata. `font-dm-sans` is only for the logo wordmark.
+- Spell the role "Frontend" (not "Front-end") to match the résumé.
 
 ## Contact Form Notes
 
-The contact modal currently uses EmailJS values directly in:
+The contact form lives in:
 
 ```text
 src/components/common/ContactModal.jsx
 ```
 
-If changing contact behavior, consider moving the EmailJS service ID, template ID, and public key into Vite environment variables.
+The EmailJS service ID, template ID, and public key are read from `VITE_EMAILJS_*` env vars (see `.env.example`), falling back to the current production values when unset.
 
 ## Deployment Notes
 

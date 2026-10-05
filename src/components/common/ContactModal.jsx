@@ -11,14 +11,18 @@ import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
+// EmailJS IDs come from Vite env vars (see .env.example). The fallbacks are the
+// current production values, so the form keeps working where none are set.
+// EmailJS public keys are meant to ship to the browser, so this isn't a secret.
+const service = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_h653wcf";
+const template = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_krarq7i";
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "FmIog3ElAtoaZQz-P";
+
 export default function ContactModal({ open, setOpen }) {
   const form = useRef();
   const cancelButtonRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  const service = "service_h653wcf";
-  const template = "template_krarq7i";
-  const publicKey = "FmIog3ElAtoaZQz-P";
 
   const sentEmail = (e) => {
     e.preventDefault();
@@ -59,7 +63,7 @@ export default function ContactModal({ open, setOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-xs transition-opacity" />
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity" />
         </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -73,15 +77,15 @@ export default function ContactModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <DialogPanel className="relative w-full transform overflow-hidden rounded-lg border border-slate-200 bg-white p-5 text-left shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950 sm:my-8 sm:max-w-lg sm:p-6">
+              <DialogPanel className="relative w-full transform overflow-hidden rounded-lg border border-line bg-surface p-5 text-left shadow-2xl shadow-black/30 transition-all sm:my-8 sm:max-w-lg sm:p-6">
                 <div className="mb-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent-ink">
                     Contact
                   </p>
-                  <DialogTitle className="mt-2 text-2xl font-bold text-slate-950 dark:text-white">
+                  <DialogTitle className="mt-2 text-2xl font-bold text-fg">
                     Tell me about your project
                   </DialogTitle>
-                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  <p className="mt-2 text-sm leading-6 text-fg-muted">
                     Share a few details and I will get back to you with a clear next step.
                   </p>
                 </div>
@@ -89,9 +93,9 @@ export default function ContactModal({ open, setOpen }) {
                   <div className="mb-4">
                     <label
                       htmlFor="name"
-                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
+                      className="block text-sm font-semibold leading-6 text-fg"
                     >
-                      Your name <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
+                      Your name <span className="text-[10px] text-accent-ink">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -99,7 +103,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="text"
                         name="user_name"
                         id="name"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-surface-2 p-3 py-2.5 text-fg ring-1 ring-inset ring-line placeholder:text-fg-faint focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6"
                         placeholder="Your name"
                       />
                     </div>
@@ -107,9 +111,9 @@ export default function ContactModal({ open, setOpen }) {
                   <div className="mb-4">
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
+                      className="block text-sm font-semibold leading-6 text-fg"
                     >
-                      Your email <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
+                      Your email <span className="text-[10px] text-accent-ink">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <input
@@ -117,7 +121,7 @@ export default function ContactModal({ open, setOpen }) {
                         type="email"
                         name="user_email"
                         id="email"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-surface-2 p-3 py-2.5 text-fg ring-1 ring-inset ring-line placeholder:text-fg-faint focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6"
                         placeholder="you@example.com"
                       />
                     </div>
@@ -125,10 +129,10 @@ export default function ContactModal({ open, setOpen }) {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-semibold leading-6 text-slate-800 dark:text-slate-200"
+                      className="block text-sm font-semibold leading-6 text-fg"
                     >
                       Message{" "}
-                      <span className="text-[10px] text-sky-600 dark:text-sky-300">(Required)</span>
+                      <span className="text-[10px] text-accent-ink">(Required)</span>
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -137,7 +141,7 @@ export default function ContactModal({ open, setOpen }) {
                         name="message"
                         id="message"
                         placeholder="Tell me a little about the project"
-                        className="block w-full rounded-lg border-0 bg-slate-50 p-3 py-2.5 text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:placeholder:text-slate-500 sm:text-sm sm:leading-6"
+                        className="block w-full rounded-lg border-0 bg-surface-2 p-3 py-2.5 text-fg ring-1 ring-inset ring-line placeholder:text-fg-faint focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6"
                         defaultValue={""}
                       />
                     </div>
@@ -146,14 +150,14 @@ export default function ContactModal({ open, setOpen }) {
                     <button
                       type="submit"
                       disabled={loading}
-                      className={`inline-flex w-full items-center justify-center gap-3 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200 sm:col-start-2 ${
+                      className={`inline-flex w-full items-center justify-center gap-3 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-fg transition hover:brightness-95 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:col-start-2 ${
                         loading ? "cursor-not-allowed" : "cursor-pointer"
                       }`}
                     >
                       Send{" "}
                       {loading ? (
                         <svg
-                          className="animate-spin h-5 w-5 text-white"
+                          className="animate-spin h-5 w-5"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -176,7 +180,7 @@ export default function ContactModal({ open, setOpen }) {
                     </button>
                     <button
                       type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-800 sm:col-start-1 sm:mt-0"
+                      className="mt-3 inline-flex w-full justify-center rounded-lg bg-surface px-4 py-2.5 text-sm font-semibold text-fg ring-1 ring-inset ring-line-strong transition hover:bg-surface-2 sm:col-start-1 sm:mt-0"
                       onClick={() => setOpen(false)}
                       ref={cancelButtonRef}
                     >

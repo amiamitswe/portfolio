@@ -1,64 +1,139 @@
 import SectionTitle from "./common/SectionTitle";
-import Skill from "./common/Skill";
+
+const skills = [
+  { title: "React & JavaScript", skillLabel: 90, focus: "Component systems and interactive UI" },
+  { title: "Next.js & TypeScript", skillLabel: 70, focus: "Production apps" },
+  { title: "HTML & Figma to HTML", skillLabel: 90, focus: "Pixel-ready markup" },
+  { title: "Tailwind, Bootstrap & CSS", skillLabel: 90, focus: "Responsive styling" },
+  { title: "Node, Express & NestJS", skillLabel: 55, focus: "API foundations" },
+  { title: "MongoDB", skillLabel: 45, focus: "Data modeling" },
+  { title: "AI Coding & API Integration", skillLabel: 65, focus: "AI-assisted coding and API implementation" },
+];
+
+const featuredSkills = ["React.js", "Next.js", "JavaScript", "Redux Toolkit", "Tailwind CSS", "shadcn/ui", "TanStack Table", "React Hook Form"];
+
+const additionalSkills = [
+  "Git",
+  "GitHub",
+  "GitLab",
+  "Bitbucket",
+  "npm",
+  "Yarn",
+  "pnpm",
+  "Postman",
+  "Agile / Scrum",
+  "Claude Code",
+  "Cursor",
+  "Codex",
+  "VS Code",
+  "WebStorm",
+  "macOS",
+  "Linux",
+  "Team collaboration",
+  "Fast learning",
+  "Client communication",
+  "B2 English",
+  "Code reviews",
+];
+
+// Self-rated levels (0-100) are grouped into tiers instead of shown as bars.
+const tiers = [
+  { label: "Expert", min: 85 },
+  { label: "Proficient", min: 65 },
+  { label: "Familiar", min: 0 },
+].map((tier, index, all) => ({
+  ...tier,
+  skills: skills.filter(
+    (skill) =>
+      skill.skillLabel >= tier.min &&
+      (index === 0 || skill.skillLabel < all[index - 1].min)
+  ),
+}));
+
+const cardClass =
+  "flex flex-col gap-4.5 rounded-[18px] border border-line bg-surface p-6 lg:rounded-[20px] lg:p-8";
 
 function MySkills() {
-  const skills = [
-    { title: "React", skillLabel: 90, focus: "Component systems" },
-    { title: "JavaScript", skillLabel: 85, focus: "Interactive UI" },
-    { title: "Next.js & TypeScript", skillLabel: 70, focus: "Production apps" },
-    { title: "HTML & Figma to HTML", skillLabel: 90, focus: "Pixel-ready markup" },
-    { title: "CSS, Bootstrap & Tailwind", skillLabel: 90, focus: "Responsive styling" },
-    { title: "Node & Express", skillLabel: 55, focus: "API foundations" },
-    { title: "MongoDB", skillLabel: 45, focus: "Data modeling" },
-    { title: "AI Coding & API Integration", skillLabel: 65, focus: "AI-assisted coding and API implementation" },
-  ];
-
-  const featuredSkills = ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind", "shadcn/ui"];
-
   return (
     <section
       id="skills"
-      className="mx-auto mt-24 max-w-7xl px-5 sm:px-6 lg:mt-32 lg:px-8"
+      className="mx-auto max-w-300 scroll-mt-24 px-5 pt-16 sm:px-8 lg:pt-35 xl:px-0"
     >
       <SectionTitle
+        index="04"
+        eyebrow="Toolkit"
         title="My Skills"
-        info="A compact view of the skills I use to build clean, responsive front-end products."
+        info="A compact view of the skills I use to build clean, responsive frontend products."
       />
-      <div className="section-reveal mx-auto grid w-full gap-6 rounded-lg border border-slate-200 bg-white/85 p-5 shadow-xs backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/70 lg:w-11/12 lg:grid-cols-[0.85fr_1.35fr] lg:p-7">
-        <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-5 text-white shadow-xs dark:border-slate-700">
-          <div className="absolute -right-12 -top-14 h-36 w-36 rounded-full bg-sky-400/20 blur-3xl" />
-          <div className="absolute -bottom-16 left-6 h-32 w-32 rounded-full bg-teal-300/20 blur-3xl" />
-          <p className="relative text-sm font-semibold uppercase tracking-[0.2em] text-sky-200">
-            Core Stack
+
+      <div className="section-reveal grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
+        <div className={cardClass}>
+          <h3 className="font-mono text-xs uppercase text-fg-faint">Core stack</h3>
+          <p className="font-display text-2xl font-bold leading-tight text-fg lg:text-[28px]">
+            Frontend craft with practical full-stack support.
           </p>
-          <h3 className="relative mt-4 font-dm-sans text-2xl font-bold leading-tight">
-            Front-end craft with practical full-stack support.
-          </h3>
-          <p className="relative mt-4 text-sm leading-7 text-slate-300">
-            I focus on scalable React interfaces, responsive layouts, and
-            fast handoff from design to production.
+          <p className="max-w-130 text-[15px] leading-relaxed text-fg-muted">
+            I focus on component architecture, REST API integration, and
+            responsive, cross-browser interfaces, and use AI dev tools like
+            Claude Code and Cursor to ship faster.
           </p>
-          <div className="relative mt-6 flex flex-wrap gap-2">
+          <ul className="flex flex-wrap gap-2">
             {featuredSkills.map((skill) => (
-              <span
+              <li
                 key={skill}
-                className="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-semibold text-slate-100"
+                className="rounded-[10px] bg-accent/15 px-3.5 py-2 text-sm font-medium text-accent-ink"
               >
                 {skill}
-              </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={cardClass}>
+          <h3 className="font-mono text-xs uppercase text-fg-faint">
+            Additional skills
+          </h3>
+          <ul className="flex flex-wrap gap-2">
+            {additionalSkills.map((skill) => (
+              <li
+                key={skill}
+                className="rounded-[10px] bg-chip px-3.5 py-2 text-sm text-fg"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={`${cardClass} lg:col-span-2`}>
+          <h3 className="font-mono text-xs uppercase text-fg-faint">Proficiency</h3>
+          <div className="grid gap-6 md:grid-cols-3 md:gap-0 md:divide-x md:divide-line">
+            {tiers.map((tier) => (
+              <div key={tier.label} className="flex flex-col gap-4 md:px-8 md:first:pl-0 md:last:pr-0">
+                <p className="flex items-center gap-2 text-sm font-semibold text-fg">
+                  <span
+                    className={`h-2 w-2 rounded-full ${
+                      tier.label === "Expert"
+                        ? "bg-accent"
+                        : tier.label === "Proficient"
+                          ? "bg-accent/50"
+                          : "bg-line-strong"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  {tier.label}
+                </p>
+                <ul className="flex flex-col gap-3.5">
+                  {tier.skills.map((skill) => (
+                    <li key={skill.title} className="flex flex-col gap-0.5">
+                      <span className="text-[15px] font-medium text-fg">{skill.title}</span>
+                      <span className="text-[13px] text-fg-subtle">{skill.focus}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {skills?.map((skill, index) => (
-            <Skill
-              key={skill.title}
-              title={skill.title}
-              skill={skill.skillLabel}
-              focus={skill.focus}
-              index={index}
-            />
-          ))}
         </div>
       </div>
     </section>

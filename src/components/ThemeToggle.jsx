@@ -68,11 +68,11 @@ export default function ThemeToggle() {
       onClick={handleThemeChange}
       aria-label={`${themeLabels[mode]} theme. Switch to ${themeLabels[nextMode]} theme.`}
       title={tooltipLabel}
-      className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-500 ring-1 ring-inset ring-slate-200 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:ring-slate-700 dark:hover:bg-slate-800 dark:hover:text-sky-300"
+      className="group relative inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-line-strong bg-surface text-fg-muted transition-colors hover:text-fg"
     >
-      <Icon className="h-5 w-5" aria-hidden="true" />
+      <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
       <span
-        className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-950 px-2.5 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg shadow-slate-950/20 transition group-hover:opacity-100 group-focus-visible:opacity-100 dark:bg-white dark:text-slate-950"
+        className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-fg px-2.5 py-1.5 font-mono text-xs text-canvas opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100"
         aria-hidden="true"
       >
         {tooltipLabel}

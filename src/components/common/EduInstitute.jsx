@@ -12,13 +12,15 @@ function EduInstitute({ edu }) {
   if (edu.stage === "B.Sc.") LogoIcon = AcademicCapIcon;
 
   return (
-    <div className="card-lift rounded-lg border border-slate-200 bg-white/80 p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900/70">
-      <LogoIcon className="mx-auto mb-5 h-14 w-14 text-sky-600 dark:text-sky-300" />
+    <div className="card-lift flex flex-col gap-5 rounded-[18px] border border-line bg-surface p-6 lg:rounded-[20px] lg:p-8">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-line-strong bg-surface-2 text-accent-ink">
+        <LogoIcon className="h-5.5 w-5.5" aria-hidden="true" />
+      </div>
 
-      <div className="text-center text-slate-600 dark:text-slate-300">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">{edu.stage}</p>
-        <p className="mb-3 text-lg font-bold uppercase text-slate-950 dark:text-white">
-          <a className="hover:text-sky-600 dark:hover:text-sky-300" href={edu?.link} target="_blank" rel="noreferrer">
+      <div className="text-fg-muted">
+        <p className="eyebrow mb-2 text-accent-ink">{edu.stage}</p>
+        <p className="mb-4 font-display text-[21px] font-bold leading-tight text-fg">
+          <a className="transition-colors hover:text-accent-ink" href={edu?.link} target="_blank" rel="noreferrer">
             {edu.institute}
           </a>
         </p>

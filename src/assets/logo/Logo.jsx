@@ -36,10 +36,10 @@ function Logo() {
         </svg>
       </span>
       <span className="flex flex-col leading-none">
-        <span className="font-dm-sans text-xl font-bold tracking-[0.12em] text-slate-950 dark:text-white">
+        <span className="font-dm-sans text-xl font-bold tracking-[0.12em] text-fg">
           AMIT
         </span>
-        <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.46em] text-slate-500 dark:text-slate-400">
+        <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.46em] text-fg-subtle">
           SAMADDER
         </span>
       </span>

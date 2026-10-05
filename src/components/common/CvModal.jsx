@@ -26,7 +26,7 @@ function CvModal({ open, setOpen }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-slate-950/75 backdrop-blur-xs transition-opacity" />
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity" />
         </TransitionChild>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -40,13 +40,13 @@ function CvModal({ open, setOpen }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <DialogPanel className="relative flex h-[88vh] w-full max-w-5xl transform flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-2xl shadow-slate-950/20 transition-all dark:border-slate-800 dark:bg-slate-950">
-                <div className="flex flex-col gap-3 border-b border-slate-200 p-4 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+              <DialogPanel className="relative flex h-[88vh] w-full max-w-5xl transform flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-2xl shadow-black/30 transition-all">
+                <div className="flex flex-col gap-3 border-b border-line p-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent-ink">
                       CV Preview
                     </p>
-                    <DialogTitle className="mt-1 text-xl font-bold text-slate-950 dark:text-white">
+                    <DialogTitle className="mt-1 text-xl font-bold text-fg">
                       Amit Samadder Resume
                     </DialogTitle>
                   </div>
@@ -54,7 +54,7 @@ function CvModal({ open, setOpen }) {
                     <a
                       href={cvDownloadUrl}
                       download="Amit_Samadder_Resume.pdf"
-                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition hover:-translate-y-0.5 hover:bg-sky-600 dark:bg-white dark:text-slate-950 dark:hover:bg-sky-200"
+                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-fg transition hover:brightness-95"
                     >
                       Download PDF
                       <ArrowDownTrayIcon className="h-4 w-4" aria-hidden="true" />
@@ -62,7 +62,7 @@ function CvModal({ open, setOpen }) {
                     <button
                       type="button"
                       onClick={() => setOpen(false)}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white text-slate-700 shadow-xs ring-1 ring-inset ring-slate-200 transition hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-200 dark:ring-slate-700 dark:hover:bg-slate-800"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-surface text-fg ring-1 ring-inset ring-line-strong transition hover:bg-surface-2"
                     >
                       <span className="sr-only">Close CV preview</span>
                       <XMarkIcon className="h-5 w-5" aria-hidden="true" />
@@ -70,11 +70,11 @@ function CvModal({ open, setOpen }) {
                   </div>
                 </div>
 
-                <div className="min-h-0 flex-1 bg-slate-100 p-3 dark:bg-slate-900">
+                <div className="min-h-0 flex-1 bg-surface-2 p-3">
                   <iframe
                     title="Amit Samadder Resume PDF"
                     src={cvPreviewUrl}
-                    className="h-full w-full rounded-lg border border-slate-200 bg-white dark:border-slate-800"
+                    className="h-full w-full rounded-lg border border-line bg-white"
                   />
                 </div>
               </DialogPanel>

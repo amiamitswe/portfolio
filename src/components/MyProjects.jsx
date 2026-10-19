@@ -3,12 +3,27 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import SectionTitle from "./common/SectionTitle";
 import weraiseImage from "../assets/images/project/weraise.png";
 import wiseImage from "../assets/images/project/wise.png";
-import ingenieroWebImage from "../assets/images/project/ingeniero-web.jpg";
+// import ingenieroWebImage from "../assets/images/project/ingeniero-web.jpg";
+import amitoImage from "../assets/images/project/amito.jpg";
 
 function MyProjects() {
   const projects = [
     {
       id: 1,
+      title: "Amito Browser",
+      image: amitoImage,
+      description:
+        "A Chromium browser for Mac built on Electron, with Chrome Web Store extensions and a built-in tab recorder, plus its Astro product website.",
+      techs: ["Electron", "React", "TypeScript", "SQLite", "Tailwind CSS", "Astro"],
+      category: "Desktop App",
+      impact: "Product + website",
+      year: "2026",
+      type: "macOS Browser",
+      github:'',
+      live: 'https://amitoweb.vercel.app/'
+    },
+    {
+      id: 2,
       title: "WeRaise",
       image: weraiseImage,
       description:
@@ -22,7 +37,7 @@ function MyProjects() {
       live: 'https://amit-weraise.netlify.app/'
     },
     {
-      id: 2,
+      id: 3,
       title: "Wise Clone",
       image: wiseImage,
       description:
@@ -35,20 +50,20 @@ function MyProjects() {
       github:'',
       live: 'https://falcon-react-wise-wizard.vercel.app/'
     },
-    {
-      id: 3,
-      title: "Ingeniero Web",
-      image: ingenieroWebImage,
-      description:
-        "A Spanish-language dashboard website refreshed by converting existing features into cleaner layouts, responsive screens, and Falcon UI patterns.",
-      techs: ["HTML", "CSS", "SCSS", "Falcon UI"],
-      category: "Spanish Website",
-      impact: "Feature refresh",
-      year: "2023",
-      type: "Dashboard UI",
-      github:'',
-      live: 'https://amit-ingeniero-web.netlify.app/'
-    },
+    // {
+      // id: 4,
+      // title: "Ingeniero Web",
+      // image: ingenieroWebImage,
+      // description:
+        // "A Spanish-language dashboard website refreshed by converting existing features into cleaner layouts, responsive screens, and Falcon UI patterns.",
+      // techs: ["HTML", "CSS", "SCSS", "Falcon UI"],
+      // category: "Spanish Website",
+      // impact: "Feature refresh",
+      // year: "2023",
+      // type: "Dashboard UI",
+      // github:'',
+      // live: 'https://amit-ingeniero-web.netlify.app/'
+    // },
   ];
   return (
     <section
